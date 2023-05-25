@@ -1,9 +1,10 @@
 import React from "react";
+import Communities from "@/components/communities";
 
 function communities() {
   return (
     <div>
-      <h1>Hello</h1>
+      <Communities/>
     </div>
   );
 }
