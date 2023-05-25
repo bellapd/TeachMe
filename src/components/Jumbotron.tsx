@@ -45,7 +45,7 @@ function Jumbotron() {
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-center h-full">
-            <div className="w-full lg:w-1/2 py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+            <div className="w-full lg:w-1/2 py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 relative">
               <div className="flex flex-col lg:flex-row items-center">
                 <div className="mb-4 lg:mb-0 lg:mr-4">
                   <Image
