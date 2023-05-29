@@ -99,6 +99,12 @@ export default function Example() {
           </div>
           <div className="flex items-center gap-4">
             <Link
+              href="/signup"
+              className="hidden lg:inline-block bg-[#] px-4 py-2 text-sm text-white rounded-md hover:bg-[#]"
+            >
+              Sign Up
+            </Link>
+            <Link
               href="/signin"
               className="hidden lg:inline-block bg-[#] px-4 py-2 text-sm text-white rounded-md hover:bg-[#]"
             >
