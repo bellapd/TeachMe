@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Jumbotron() {
   return (
-    <div>
+    <div id="JumbotronKU">
       <section className="bg-[#6016E5] h-1/3 md:h-1/2">
         <div className="relative h-full">
           <div className="absolute bottom-0 left-0">
@@ -59,9 +59,11 @@ function Jumbotron() {
                   <h1 className="text-4xl font-extrabold tracking-tight leading-none md:text-4xl lg:text-5xl text-white">
                     Your Personal Mentor Finder.
                   </h1>
-                  <p className="text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-5">
+                  <br />
+                  <p className="text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-0 indent-0 text-left">
                     “The best way to predict your future is to create it.”
                   </p>
+                  <br />
                   <a
                     href="#"
                     className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-medium text-center text-[#4700C6] rounded-xl bg-[#FFE873]"
