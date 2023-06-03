@@ -27,7 +27,7 @@ export default function Example() {
   const navList = (
     <div className="flex items-center gap-6">
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <a href="#" className="flex items-center focus:outline-none">
+        <a href="#JumpAbout" className="flex items-center focus:outline-none">
           About
         </a>
       </Typography>
