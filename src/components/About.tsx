@@ -4,7 +4,7 @@ import Image from "next/image";
 function About() {
   return (
     <div>
-      <section className="bg-[#F0EFFF]">
+      <section id="JumpAbout" className="bg-[#F0EFFF]">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-12">
