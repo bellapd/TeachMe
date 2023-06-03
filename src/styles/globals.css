@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#JumpAbout #JumbotronKU #H2Use {
+  height: 700px;
+}
