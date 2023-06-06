@@ -1,14 +1,14 @@
 import React from "react";
-import Signin from "../components/Signin";
+import Signup from "../components/Signup";
 import Navbar from "../components/Navbar";
 
-function signin() {
+function signup() {
   return (
     <div>
       <Navbar />
-      <Signin />
+      <Signup />
     </div>
   );
 }
 
-export default signin;
+export default signup;
