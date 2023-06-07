@@ -20,7 +20,7 @@ export default function successJumbo() {
 
               <div>
                 <div className="text-green-400">
-                  <p class="">Appointment Successful!</p>
+                  <p className="">Appointment Successful!</p>
                 </div>
                 <p>Your mentor will reach out shortly.</p>
                 <p className="bold">Please Check your Email</p>
