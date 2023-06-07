@@ -1,11 +1,12 @@
-import React from "react";
+import { SignIn } from "@clerk/clerk-react";
 
-function Signin() {
+const Signin = () => {
   return (
     <div>
-      <section className="bg-[#6016E5]"></section>
+      <h1>Sign In</h1>
+      <SignIn path="/signin" routing="path" />
     </div>
   );
-}
+};
 
 export default Signin;
