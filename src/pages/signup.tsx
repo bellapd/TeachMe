@@ -1,12 +1,11 @@
 import React from "react";
-import Signup from "../components/Signup";
-import Navbar from "../components/Navbar";
+// import signup from clerk
+import { SignUp } from "@clerk/nextjs";
 
 function signup() {
   return (
     <div>
-      <Navbar />
-      <Signup />
+      <SignUp />
     </div>
   );
 }
