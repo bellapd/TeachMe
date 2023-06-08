@@ -1,12 +1,13 @@
 import React from "react";
+import App from "../components/Docker";
+import Navbar from "../components/Navbar";
 
 function Docker() {
   return (
-
-    <div>
-      <h1>Docker</h1>
-    </div>
-
+    <>
+      <Navbar/>
+      <App/>
+    </>
   );
 }
 
