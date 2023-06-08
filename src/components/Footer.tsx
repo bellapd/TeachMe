@@ -45,6 +45,14 @@ function Footer() {
                       Communities
                     </a>
                   </li>
+                  <li>
+                    <a
+                      href="/successAppointment"
+                      className="hover:underline"
+                    >
+                      TEST
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -90,6 +98,7 @@ function Footer() {
                 </svg>
                 <span className="sr-only">GitHub account</span>
               </a>
+              
             </div>
           </div>
         </div>

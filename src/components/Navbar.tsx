@@ -152,7 +152,7 @@ export default function Example() {
         <MobileNav open={openNav}>
           {navList}
           <Link href="/signin">
-            <Button size="sm" fullWidth className="mb-2">
+            <Button size="sm" fullWidth className="mb-2" color="purple">
               Sign In
             </Button>
           </Link>
