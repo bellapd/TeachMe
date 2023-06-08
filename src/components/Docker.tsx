@@ -16,8 +16,8 @@ export default function Example() {
   const cards = [
     {
       image:
-        "/images/python1.svg",
-      title: "Buudi Sumaker",
+        "/images/docker1.svg",
+      title: "Croy Karz",
       subtitle: "Lyft launching cross-platform service this week",
       description:
         "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
@@ -25,8 +25,8 @@ export default function Example() {
     },
     {
         image:
-          "/images/python2.svg",
-        title: "Queenie",
+          "/images/docker2.svg",
+        title: "Hendra",
         subtitle: "Lyft launching cross-platform service this week",
         description:
           "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
@@ -34,8 +34,8 @@ export default function Example() {
       },
       {
         image:
-          "/images/python3.svg",
-        title: "Lord Bawi",
+          "/images/docker3.svg",
+        title: "Agus",
         subtitle: "Lyft launching cross-platform service this week",
         description:
           "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
@@ -54,10 +54,10 @@ export default function Example() {
         <div className="relative h-full">
           <div className="text-black py-12 px-12 flex items-center">
             <Image
-                src="/images/python-original.png"
-                width={50}
+                src="/images/docker_logo.svg"
+                width={81}
                 height={50}
-                alt="python_logo"
+                alt="docker_logo"
                 className="object-cover"
             /> 
             <Typography
@@ -65,7 +65,7 @@ export default function Example() {
               color="blue-gray"
               className="mb-2 px-2"
             >
-              Python
+              Docker
             </Typography>
           </div>
           <Carousel

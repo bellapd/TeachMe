@@ -1,12 +1,12 @@
 import React from "react";
-
+import App from "../components/C";
+import Navbar from "../components/Navbar";
 function C() {
   return (
-
-    <div>
-      <h1>C</h1>
-    </div>
-
+    <>
+      <Navbar/>
+      <App/>
+    </>
   );
 }
 
