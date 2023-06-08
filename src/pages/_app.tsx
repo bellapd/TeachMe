@@ -8,12 +8,10 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-const clerk_pub_key = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ClerkProvider
-    publishableKey={clerk_pub_key}>
+    <ClerkProvider frontendApi={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <Component {...pageProps} />
     </ClerkProvider>
   );
