@@ -62,14 +62,14 @@ export default function Example() {
                 Python
               </Link>
               <Link
-                href="#"
+                href="/c"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 C
               </Link>
               <Link
-                href="#"
+                href="/docker"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
