@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import { Typography } from "@material-tailwind/react";
+import Datepicker from "react-tailwindcss-datepicker";
 
 function Appointment(){
+    function handleValueChange(){
+        return null;
+    }
     return(
         <div id="BagProf" className="min-h-screen">
             <section className="">
@@ -26,7 +30,7 @@ function Appointment(){
                         id="ProfileName"
                         className="font-serif font-bold text-3xl text-center capitalize text-purple-800"
                     >
-                        Budi Sumaker
+                        Budi Suumaker
                     </p>
                     
                     <div className=" inline-block">
@@ -53,20 +57,29 @@ function Appointment(){
                 
                 <br />
           <div className="w-72">
-            <p className="align-top text-left font-bold text-2xl">Syllabus 📖</p>
+            <p className="align-top text-left font-bold text-2xl">Time 📖</p>
             <select data-te-select-init>
-                
-                <option value="1">10:00</option>
-                <option value="2">11:00</option>
-                <option value="3">12:00</option>
-                <option value="4">13:00</option>
-                <option value="5">Five</option>
-                <option value="6">Six</option>
-                <option value="7">Seven</option>
-                <option value="8">Eight</option>
+                <option value="1">6:00</option>
+                <option value="2">7:00</option>
+                <option value="3">8:00</option>
+                <option value="4">9:00</option>
+                <option value="5">10:00</option>
+                <option value="6">11:00</option>
+                <option value="7">12:00</option>
+                <option value="8">13:00</option>
+                <option value="9">14:00</option>
+                <option value="10">15:00</option>
+                <option value="11">16:00</option>
+                <option value="12">17:00</option>
+                <option value="13">18:00</option>
             </select>
             
           </div>
+            <Datepicker 
+                value={null}
+                onChange={handleValueChange} 
+                showShortcuts={true} 
+            /> 
                 </article>
             </section>
             </div>
