@@ -32,7 +32,7 @@ export default function Example() {
         </a>
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <a href="#" className="flex items-center focus:outline-none">
+        <a href="/profiledetails" className="flex items-center focus:outline-none">
           Community
         </a>
       </Typography>

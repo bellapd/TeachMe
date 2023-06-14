@@ -18,10 +18,10 @@ export default function Example() {
       image:
         "/images/python1.svg",
       title: "Buudi Sumaker",
-      subtitle: "Lyft launching cross-platform service this week",
+      subtitle: "Python programmer with 99 years of experience",
       description:
-        "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-      link: "#",
+        "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
+      link: "/appointment",
     },
     {
         image:
@@ -30,7 +30,7 @@ export default function Example() {
         subtitle: "Lyft launching cross-platform service this week",
         description:
           "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-        link: "#",
+        link: "/appointment",
       },
       {
         image:
@@ -39,7 +39,7 @@ export default function Example() {
         subtitle: "Lyft launching cross-platform service this week",
         description:
           "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-        link: "#",
+        link: "/appointment",
       },
     // Add more card objects as needed
   ];
@@ -77,8 +77,8 @@ export default function Example() {
             className="carousel-wrapper"
           >
             {cards.map((card, index) => (
-            <div key={index} className="carousel-card flex-col items-center">
-              <Card className="flex-row items-center bg-purple-200">
+            <div key={index} className="carousel-card flex-col items-center px-56">
+              <Card className=" bg-purple-200" >
                 <CardHeader
                   shadow={false}
                   floated={false}
@@ -108,8 +108,8 @@ export default function Example() {
                   <Typography color="gray" className="font-normal mb-8">
                     {card.description}
                   </Typography>
-                  <a href={card.link} className="inline-block bg-yellow-400">
-                    <Button variant="text" className="flex items-center gap-2 text-center bg-yellow-400">
+                  <a href={card.link} className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873]">
+                    <Button variant="text" className="flex items-center gap-2 text-center">
                       Make an Appointment
                     </Button>
                   </a>
