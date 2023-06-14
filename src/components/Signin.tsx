@@ -1,5 +1,7 @@
 import { SignIn } from "@clerk/nextjs/app-beta";
 import Image from "next/image";
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta/client";
 
 const Signin = () => {
   return (
@@ -12,12 +14,27 @@ const Signin = () => {
           alt="geometry3"
           className="object-cover"
         /> */}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton mode="modal">
+            <button className="rounded border border-gray-400 px-3 py-0.5">
+              Sign in
+            </button>
+          </SignInButton>
+        </SignedOut>
       </div>
       <div className="w-1/2 flex justify-center items-center p-7 ml-10">
         <Image src="/images/signin.svg" width={450} height={450} alt="signin" />
       </div>
       <div className="w-1/2 flex justify-center items-center p-7">
-        <SignIn path="/signin" routing="path" signUpUrl="/signup" />
+        <SignIn
+          path="/signin"
+          routing="path"
+          signUpUrl="/signup"
+          afterSignInUrl="/dashboard"
+        />
       </div>
     </div>
   );
