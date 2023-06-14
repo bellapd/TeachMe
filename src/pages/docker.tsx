@@ -5,8 +5,8 @@ import Navbar from "../components/Navbar";
 function Docker() {
   return (
     <>
-      <Navbar/>
-      <App/>
+      <Navbar />
+      <App />
     </>
   );
 }
