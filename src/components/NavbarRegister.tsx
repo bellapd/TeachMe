@@ -34,6 +34,12 @@ export default function Example() {
   function Dashboard() {
     return (
       <>
+        <Typography>
+        <a href="/userDashboard" className="flex items-center focus:outline-none">
+          Dashboard
+        </a>
+          
+        </Typography>
         <SignedIn>
           {/* Mount the UserButton component */}
           <UserButton />

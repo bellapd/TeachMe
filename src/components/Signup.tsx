@@ -17,7 +17,7 @@ const Signup = () => {
 
       {/* Sign-up form */}
       <div className="w-1/2 flex justify-center items-center p-7">
-        <SignUp path="/signup" routing="path" signInUrl="/signin" />
+        <SignUp path="/signup" routing="path" signInUrl="/signin" redirectUrl="/"/>
       </div>
     </div>
   );
