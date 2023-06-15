@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Typography, Checkbox, Button } from "@material-tailwind/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
 function Appointment(){
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [checkboxChecked, setCheckboxChecked] = useState(false);
@@ -22,6 +23,7 @@ function Appointment(){
         setShowPrompt(true);
         }
     };
+
     return(
         <div id="BagProf" className="min-h-screen">
                 <div
@@ -52,9 +54,6 @@ function Appointment(){
                     </div>
                     <br />
                     <br />
-                    <button className="rounded-full px-10 py-4 mx-2  bg-green-500 text-white font-semibold">
-                        Connect
-                    </button>
                 </div>
                 <article
                 id="Profile2"
@@ -112,9 +111,7 @@ function Appointment(){
         <div className="flex-col items-center px-56">
           <a
             href={checkboxChecked ? "/successAppointment" : "#"}
-            className={`inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl ${
-            !checkboxChecked && "pointer-events-none bg-[#FFE873]"
-            }`}
+            className={`inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center bg-[#FFE873] text-[#4700C6] rounded-xl`}
             onClick={handleMakeAppointment}
           >
             <Button variant="text" className="flex items-center gap-2 text-center">
