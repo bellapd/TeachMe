@@ -6,7 +6,7 @@ import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta/client";
 const Signin = () => {
   return (
     <div className="flex bg-[#4700C6]">
-      <div className="hidden md:block">
+      <div className="hidden">
         {/* <Image
           src="/images/geometry3.svg"
           width={350}
