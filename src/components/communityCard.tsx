@@ -11,7 +11,7 @@ export default function CardComponentSHEESH() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
 
             <h1 className="text-[#4700C6] text-3xl md:text-5xl font-extrabold mb-2">
-                COMMUNITIES?
+                COMMUNITIES
             </h1>
 
             <div className="grid md:grid-cols-3 gap-8">
