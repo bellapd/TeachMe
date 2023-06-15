@@ -1,10 +1,12 @@
 import React from "react";
-
+import Commies from "../components/communityCard"
+import Navbar from "../components/Navbar"
 function communities() {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <>
+      <Navbar/>
+      <Commies/>
+    </>
   );
 }
 
