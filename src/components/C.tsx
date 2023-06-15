@@ -143,11 +143,13 @@ export default function Example() {
                     </Typography>
                   </div>
                 </CardBody>
-                <div className="flex-col items-center px-56"><a href={card.link} className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873]">
+                <div className="flex-col items-center px-56">
+                  <a href={card.link} className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873]">
                     <Button variant="text" className="flex items-center gap-2 text-center">
                       Make an Appointment
                     </Button>
-                  </a></div>
+                  </a>
+                </div>
                 
               </Card>
             </div>
