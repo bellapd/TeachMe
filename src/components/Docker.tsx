@@ -21,7 +21,7 @@ export default function Example() {
       subtitle: "Lyft launching cross-platform service this week",
       description:
         "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-      link: "#",
+      link: "/appointment/croykarz",
     },
     {
         image:
@@ -30,7 +30,7 @@ export default function Example() {
         subtitle: "Lyft launching cross-platform service this week",
         description:
           "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-        link: "#",
+        link: "/appointment/hendra",
       },
       {
         image:
@@ -39,7 +39,7 @@ export default function Example() {
         subtitle: "Lyft launching cross-platform service this week",
         description:
           "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-        link: "#",
+        link: "/appointment/agus",
       },
     // Add more card objects as needed
   ];

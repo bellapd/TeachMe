@@ -33,7 +33,7 @@ const Signin = () => {
           path="/signin"
           routing="path"
           signUpUrl="/signup"
-          afterSignInUrl="/dashboard"
+          afterSignInUrl="/"
         />
       </div>
     </div>

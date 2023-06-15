@@ -45,14 +45,6 @@ function Footer() {
                       Communities
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="/successAppointment"
-                      className="hover:underline"
-                    >
-                      TEST
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>

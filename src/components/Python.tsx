@@ -27,7 +27,7 @@ export default function Example() {
       subtitle: "Python programmer with 99 years of experience",
       description:
         "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
-      link: "/appointment",
+      link: "/appointment/buudisumaker",
     },
     {
         image:
@@ -36,7 +36,7 @@ export default function Example() {
         subtitle: "Lyft launching cross-platform service this week",
         description:
           "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-        link: "/appointment",
+        link: "/appointment/queenie",
       },
       {
         image:
@@ -45,7 +45,7 @@ export default function Example() {
         subtitle: "Lyft launching cross-platform service this week",
         description:
           "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-        link: "/appointment",
+        link: "/appointment/lordbawi",
       },
     // Add more card objects as needed
   ];
