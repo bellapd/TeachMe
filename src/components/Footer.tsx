@@ -39,10 +39,18 @@ function Footer() {
                   </li>
                   <li>
                     <a
-                      href="https://tailwindcss.com/"
+                      href="/communities"
                       className="hover:underline"
                     >
                       Communities
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/successAppointment"
+                      className="hover:underline"
+                    >
+                      TEST
                     </a>
                   </li>
                 </ul>
