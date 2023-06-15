@@ -27,12 +27,13 @@ export default function Example() {
   const navList = (
     <div className="flex items-center gap-6">
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <a href="#JumpAbout" className="flex items-center focus:outline-none">
+        <a href="#JumpAbout" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
           About
         </a>
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
         <a href="/profiledetails" className="flex items-center focus:outline-none">
+        // <a href="#" className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
           Community
         </a>
       </Typography>
@@ -40,7 +41,7 @@ export default function Example() {
         <Typography variant="small" color="blue-gray" className="font-normal">
           <a
             href="#"
-            className="flex items-center focus:outline-none"
+            className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
             onClick={toggleDropdown}
           >
             Course
@@ -100,13 +101,13 @@ export default function Example() {
           <div className="flex items-center gap-4">
             <Link
               href="/signup"
-              className="hidden lg:inline-block bg-[#] px-4 py-2 text-sm text-white rounded-md hover:bg-[#]"
+              className="hidden lg:inline-block bg-[#] px-4 py-2 text-sm text-white rounded-md hover:bg-[#] scale-100 hover:scale-150 ease-in duration-200"
             >
               Sign Up
             </Link>
             <Link
               href="/signin"
-              className="hidden lg:inline-block bg-[#] px-4 py-2 text-sm text-white rounded-md hover:bg-[#]"
+              className="hidden lg:inline-block bg-[#] px-4 py-2 text-sm text-white rounded-md hover:bg-[#] scale-100 hover:scale-150 ease-in duration-200"
             >
               Sign In
             </Link>
