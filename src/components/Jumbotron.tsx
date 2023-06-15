@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Jumbotron() {
   return (
@@ -97,15 +98,21 @@ function Jumbotron() {
           </h1>
 
           <div className="flex justify-center mt-8">
-            <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
-              🥇 Python
-            </button>
-            <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
-              🥈 C
-            </button>
-            <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
-              🥉 Docker
-            </button>
+            <Link href="/python">
+              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
+                🥇 Python
+              </button>
+            </Link>
+            <Link href="/c">
+              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
+                🥈 C
+              </button>
+            </Link>
+            <Link href="/docker">
+              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
+                🥉 Docker
+              </button>
+            </Link>
           </div>
         </div>
       </section>
