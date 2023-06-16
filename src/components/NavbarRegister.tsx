@@ -15,10 +15,12 @@ import {
 } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const router = useRouter();
 
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown);
@@ -54,9 +56,20 @@ export default function Example() {
   const navList = (
     <div className="flex items-center gap-6">
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <a href="#JumpAbout" className="flex items-center focus:outline-none">
-          About
-        </a>
+        {router.pathname === "/" ? (
+          <a
+            href="#JumpAbout"
+            className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+          >
+            About
+          </a>
+        ) : (
+          <Link href="/about">
+            <a className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
+              About
+            </a>
+          </Link>
+        )}
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
         <Link href="/communities" className="flex items-center focus:outline-none">
