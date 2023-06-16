@@ -16,24 +16,40 @@ function Appointment() {
   const {user} = useUser();
 
   const updateMetadata = async () => {
-
-    // const data = {courses:['pysdsd',"doc", "ok"]};
-    // const fileName = "/images/" + user?.unsafeMetadata?.courses[0] +".svg";
+    const data= {};
     const cour = user?.unsafeMetadata?.courses;
-    const cour2 = cour.concat("c");
-    const data = { courses: cour2 };
-    
-    try {
-      const response = await user?.update({
-        unsafeMetadata: data 
-      });
-      if (response) {
-        console.log('res', response)
-        // console.log(myarr)
+    console.log('res', cour);
+    if(cour === undefined){
+      const data = { courses: ["c"] };
+      try {
+        const response = await user?.update({
+          unsafeMetadata: data 
+        });
+        if (response) {
+          console.log('res', response)
+          // console.log(myarr)
+        }
+      } catch (err) {
+        console.error('error', err)
       }
-    } catch (err) {
-      console.error('error', err)
     }
+    else{
+      const cour2 = cour?.concat("c");
+      const data = { courses: cour2 };
+      
+      try {
+        const response = await user?.update({
+          unsafeMetadata: data 
+        });
+        if (response) {
+          console.log('res', response)
+          // console.log(myarr)
+        }
+      } catch (err) {
+        console.error('error', err)
+      }
+    }
+    
   };
 
   const templateParams = {
@@ -196,7 +212,8 @@ function Appointment() {
           </div>
           <div className="flex-col items-center px-80">
             <a
-              href={checkboxChecked ? "/successAppointment" : "#"}
+              // href={checkboxChecked ? "/successAppointment" : "#"}
+              href={"#"}
               className={`inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center bg-[#FFE873] text-[#4700C6] rounded-xl`}
               onClick={handleMakeAppointment}
             >
