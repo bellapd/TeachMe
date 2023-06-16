@@ -25,10 +25,12 @@ export default function successJumbo() {
                   <p className="text-2xl text-black font-thin my-2">Your mentor will reach out shortly.</p>
                   <p className="bold text-2xl text-black my-2">Please check your e-mail</p>
               <div className="mx-20 my-5">
-              <Button className=" -mx-2 my-5 group relative h-16 w-54 overflow-hidden rounded-lg bg-white text-lg shadow">
-                <div className="absolute inset-0 w-3 bg-green-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                <span className="relative text-black group-hover:text-white">I Understand <i className="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
-              </Button>
+              <a href="/">
+                <Button className=" -mx-2 my-5 group relative h-16 w-54 overflow-hidden rounded-lg bg-white text-lg shadow">
+                  <div className="absolute inset-0 w-3 bg-green-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                  <span className="relative text-black group-hover:text-white">I Understand <i className="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
+                </Button>
+              </a>
               <div className="my-2 -mx-5">
                 <a href="#" className="text-2xl hover:underline ">
                     <i className=" text-2xl fa fa-facebook text-blue-600 font-bold hover:underline">      Share on Facebook</i>
