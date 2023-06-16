@@ -13,18 +13,14 @@ export default function CardComponentSHEESH() {
             <h1 className="text-[#4700C6] text-3xl md:text-5xl font-extrabold mb-2">
                 COMMUNITIES
             </h1>
-
             <div className="grid md:grid-cols-3 gap-8">
-                
                 <div className="bg-[#F6F4FC] rounded-lg p-8 md:p-12 items-center justify-center text-center">
-                    
                     <Image
                     src="/images/dockerLogo.svg"
                     width={300}
                     height={300}
                     alt="find mentor"
-                    />
-                    
+                    />       
                     <div className="h-64">
                         <p className="font-normal text-gray-700 my-5 text-2xl">
                             Learn how to set up your Docker environment and start containerizing your applications. Choose a language below to get started.

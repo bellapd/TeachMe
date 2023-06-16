@@ -3,10 +3,11 @@ import Image from "next/image";
 import { Button } from "@material-tailwind/react";
 import 'font-awesome/css/font-awesome.min.css';
 import { NextResponse } from 'next/server';
-import {ClerkProvider,SignIn,SignedOut,auth,useUser } from '@clerk/nextjs';
+import {useUser } from '@clerk/nextjs';
 
 export default function userDashboardSHEEESH() {
   const {user} = useUser();
+  const fileName = "/images/" + user?.unsafeMetadata?.courses[0] +".svg";
   return (
     <div className="h-screen justify-center items-center bg-white">
       <div id="profile" className="pb-10 bg-purple-100 flex flex-col justify-center items-center relative py-5">
@@ -21,14 +22,14 @@ export default function userDashboardSHEEESH() {
         <div aria-label="card-overlay" className="bg-purple-200 grid grid-cols-2 mx-10 relative w-[500px] h-[200px] rounded-3xl">
           <div id="leftside" className="flex-1 flex items-center justify-center">
             <Image
-              src="/images/pythonLogo.svg"
+              src= {fileName}
               width={150}
               height={150}
               alt="logopython"
             />
           </div>
           <div id="rightside" className="flex flex-col justify-center items-center">
-            <p id="courseTitle" className="text-3xl text-black my-5">Test</p>
+            <p id="courseTitle" className="text-3xl text-black my-5">{user?.unsafeMetadata?.courses[0]}</p>
             <a>
               <Button>
                 <p>View Course</p>
