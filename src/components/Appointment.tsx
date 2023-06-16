@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Typography, Checkbox, Button } from "@material-tailwind/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { text } from "stream/consumers";
 
 function Appointment(){
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -23,6 +24,13 @@ function Appointment(){
         setShowPrompt(true);
         }
     };
+
+    const [text,setText] = useState("");
+
+    const handleChangeText = (event) =>{
+            setText(event.target.value);
+    };
+
 
     return(
         <div id="BagProf" className="min-h-screen">
@@ -91,7 +99,12 @@ function Appointment(){
                 onChange={ (date) => setSelectedDate(date)}
                 className="px-5"
             /> 
-            <div className="flex items-center">
+            <div className="my-5">
+            <p>Note</p>
+                <textarea placeholder="testing" value={text} onChange={handleChangeText} className="w-full h-full p-2 border border-gray-300 rounded" />
+            </div>
+            <p>Value: {text} </p>
+            <div className="flex items-center mx-5 my-5">
                 <Fragment >
                     <Checkbox
                         id="ripple-on"
@@ -107,7 +120,6 @@ function Appointment(){
                 </Typography>
             )}
             </div>
-            
         <div className="flex-col items-center px-56">
           <a
             href={checkboxChecked ? "/successAppointment" : "#"}
