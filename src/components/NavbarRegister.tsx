@@ -37,11 +37,11 @@ export default function Example() {
     return (
       <>
         <Typography>
-        <Link href="/userDashboard" className="flex items-center focus:outline-none">
+        <Link href="/userDashboard" className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
           Dashboard
         </Link>
-          
         </Typography>
+        <div className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
         <SignedIn>
           {/* Mount the UserButton component */}
           <UserButton />
@@ -50,6 +50,8 @@ export default function Example() {
           {/* Signed out users get sign in button */}
           <SignInButton />
         </SignedOut>
+        </div>
+        
       </>
     );
   }
@@ -125,7 +127,7 @@ export default function Example() {
       <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-[#4700C6]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/dashboard">
+            <Link href="/dashboard" className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
               <Image
                 src="/images/logonav.svg"
                 alt="logo"
@@ -135,7 +137,7 @@ export default function Example() {
             </Link>
             <div className="hidden lg:block">{navList}</div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 ">
             <Dashboard />
           </div>
         </div>

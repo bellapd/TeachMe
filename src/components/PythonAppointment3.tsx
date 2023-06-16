@@ -16,24 +16,41 @@ function Appointment() {
   const {user} = useUser();
 
   const updateMetadata = async () => {
-
-    // const data = {courses:['pysdsd',"doc", "ok"]};
-    // const fileName = "/images/" + user?.unsafeMetadata?.courses[0] +".svg";
+    const data= {};
     const cour = user?.unsafeMetadata?.courses;
-    const cour2 = cour.concat("python");
-    const data = { courses: cour2 };
-    
-    try {
-      const response = await user?.update({
-        unsafeMetadata: data 
-      });
-      if (response) {
-        console.log('res', response)
-        // console.log(myarr)
+    console.log('res', cour);
+    if(cour === undefined){
+      const data = { courses: ["python"] };
+      try {
+        const response = await user?.update({
+          unsafeMetadata: data 
+        });
+        if (response) {
+          console.log('res', response)
+          // console.log(myarr)
+        }
+      } catch (err) {
+        console.error('error', err)
       }
-    } catch (err) {
-      console.error('error', err)
     }
+    else{
+      const cour = user?.unsafeMetadata?.courses;
+      const cour2 = cour.concat("python");
+      const data = { courses: cour2 };
+      
+      try {
+        const response = await user?.update({
+          unsafeMetadata: data 
+        });
+        if (response) {
+          console.log('res', response)
+          // console.log(myarr)
+        }
+      } catch (err) {
+        console.error('error', err)
+      }
+    }
+    
   };
 
   const templateParams = {
