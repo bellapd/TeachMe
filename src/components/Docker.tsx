@@ -56,7 +56,7 @@ export default function Example() {
         <div className="relative h-full">
           <div className="text-black py-12 px-64 flex items-center">
             <Image
-                src="/images/docker_logo.svg"
+                src="/images/docker.svg"
                 width={81}
                 height={50}
                 alt="docker_logo"
@@ -75,6 +75,7 @@ export default function Example() {
             onChange={handleSlideChange}
             showStatus={false}
             showThumbs={false}
+            showIndicators={false}
             infiniteLoop
             className="carousel-wrapper"
             renderArrowPrev={(clickHandler, hasPrev) => {

@@ -56,7 +56,7 @@ export default function Example() {
         <div className="relative h-full">
           <div className="text-black py-12 px-64 flex items-center">
             <Image
-                src="/images/c-plain.svg"
+                src="/images/c.svg"
                 width={50}
                 height={50}
                 alt="c_logo"
@@ -75,6 +75,7 @@ export default function Example() {
             onChange={handleSlideChange}
             showStatus={false}
             showThumbs={false}
+            showIndicators={false}
             infiniteLoop
             className="carousel-wrapper"
             renderArrowPrev={(clickHandler, hasPrev) => {
