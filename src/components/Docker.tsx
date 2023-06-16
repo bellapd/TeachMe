@@ -20,27 +20,27 @@ export default function Example() {
       image:
         "/images/docker1.svg",
       title: "Croy Karz",
-      subtitle: "Lyft launching cross-platform service this week",
+      subtitle: "Docker Teacher with 99 years of experience",
       description:
-        "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
+        "I have studied Docker for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Docker to its fullest.",
       link: "/appointment/croykarz",
     },
     {
         image:
           "/images/docker2.svg",
         title: "Hendra",
-        subtitle: "Lyft launching cross-platform service this week",
+        subtitle: "Docker Teacher with 99 years of experience",
         description:
-          "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
+          "I have studied Docker for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Docker to its fullest.",
         link: "/appointment/hendra",
       },
       {
         image:
           "/images/docker3.svg",
         title: "Agus",
-        subtitle: "Lyft launching cross-platform service this week",
+        subtitle: "Docker Teacher with 99 years of experience",
         description:
-          "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
+          "I have studied Docker for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Docker to its fullest.",
         link: "/appointment/agus",
       },
     // Add more card objects as needed
@@ -145,7 +145,7 @@ export default function Example() {
                     </Typography>
                   </div>
                 </CardBody>
-                <div className="flex-col items-center px-56">
+                <div className="flex-col items-center">
                   <a href={ user&&clerkUser ? card.link : "/signin"} className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873]">
                     <Button variant="text" className="flex items-center gap-2 text-center">
                       Make an Appointment
