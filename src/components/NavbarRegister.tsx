@@ -35,9 +35,9 @@ export default function Example() {
     return (
       <>
         <Typography>
-        <a href="/userDashboard" className="flex items-center focus:outline-none">
+        <Link href="/userDashboard" className="flex items-center focus:outline-none">
           Dashboard
-        </a>
+        </Link>
           
         </Typography>
         <SignedIn>
@@ -59,9 +59,9 @@ export default function Example() {
         </a>
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <a href="#" className="flex items-center focus:outline-none">
+        <Link href="/communities" className="flex items-center focus:outline-none">
           Community
-        </a>
+        </Link>
       </Typography>
       <div className="relative">
         <Typography variant="small" color="blue-gray" className="font-normal">

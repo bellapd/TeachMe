@@ -1,5 +1,6 @@
-import { SignUp } from "@clerk/nextjs";
+import { RedirectToSignUp, SignUp } from "@clerk/nextjs";
 import Image from "next/image";
+import { SignedOut } from "@clerk/clerk-react";
 
 const Signup = () => {
   return (
@@ -17,7 +18,10 @@ const Signup = () => {
 
       {/* Sign-up form */}
       <div className="w-1/2 flex justify-center items-center p-7">
-        <SignUp path="/signup" routing="path" signInUrl="/signin" redirectUrl="/"/>
+        <SignedOut>
+          <SignUp/>
+          <RedirectToSignUp />
+        </SignedOut>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from "react";
-import App from "../components/Appointment";
-import Navbar from "../components/Navbar";
+import App from "../../components/CAppointment1";
+import Navbar from "../../components/Navbar";
 import { useUser, useClerk } from "@clerk/clerk-react";
-import RegisterNavbar from "../components/NavbarRegister";
+import RegisterNavbar from "../../components/NavbarRegister";
 
 function Appointment() {
   const { user } = useUser();
