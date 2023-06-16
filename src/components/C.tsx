@@ -20,27 +20,27 @@ export default function Example() {
       image:
         "/images/c1.svg",
       title: "Frans",
-      subtitle: "Lyft launching cross-platform service this week",
+      subtitle: "C programmer with 99 years of experience",
       description:
-        "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
+        "I have studied C for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use C to its fullest.",
       link: "/appointment/frans",
     },
     {
         image:
           "/images/c2.svg",
         title: "Philip Aleon",
-        subtitle: "Lyft launching cross-platform service this week",
+        subtitle: "C programmer with 99 years of experience",
         description:
-          "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
+          "I have studied C for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use C to its fullest.",
         link: "/appointment/philipaleon",
       },
       {
         image:
           "/images/c3.svg",
         title: "Chika",
-        subtitle: "Lyft launching cross-platform service this week",
+        subtitle: "C programmer with 99 years of experience",
         description:
-          "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
+          "I have studied C for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use C to its fullest.",
         link: "/appointment/chika",
       },
     // Add more card objects as needed
@@ -114,7 +114,7 @@ export default function Example() {
           >
             {cards.map((card, index) => (
             <div key={index} className="carousel-card flex-col items-center px-64">
-              <Card className="bg-purple-200">
+              <Card className="flex-col items-center bg-purple-200">
                 <CardBody className="flex">
                   <div>
                     <Image
@@ -145,7 +145,7 @@ export default function Example() {
                     </Typography>
                   </div>
                 </CardBody>
-                <div className="flex-col items-center px-56">
+                <div className="flex-col items-center">
                   <a href={ user&&clerkUser ? card.link : "/signin"} className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873]">
                     <Button variant="text" className="flex items-center gap-2 text-center">
                       Make an Appointment
