@@ -100,7 +100,7 @@ export default function Example() {
       <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-[#4700C6]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/">
+            <Link href="/" className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
               <Image
                 src="/images/logonav.svg"
                 alt="logo"

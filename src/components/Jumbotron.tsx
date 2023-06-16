@@ -67,7 +67,7 @@ function Jumbotron() {
                   <br />
                   <a
                     href="/signup"
-                    className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-medium text-center text-[#4700C6] rounded-xl bg-[#FFE873]"
+                    className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-medium text-center text-[#4700C6] rounded-xl bg-[#FFE873] focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
                   >
                     Get started
                     <svg
@@ -99,17 +99,17 @@ function Jumbotron() {
 
           <div className="flex justify-center mt-8">
             <Link href="/python">
-              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
+              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
                 🥇 Python
               </button>
             </Link>
             <Link href="/c">
-              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
+              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
                 🥈 C
               </button>
             </Link>
             <Link href="/docker">
-              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold">
+              <button className="rounded-full px-6 py-3 mx-2 bg-[#ECC8F5] text-[#4700C6] font-semibold flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
                 🥉 Docker
               </button>
             </Link>

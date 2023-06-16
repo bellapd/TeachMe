@@ -19,7 +19,7 @@ function Appointment() {
 
     // const data = {courses:['pysdsd',"doc", "ok"]};
     // const fileName = "/images/" + user?.unsafeMetadata?.courses[0] +".svg";
-    const cour = user?.unsafeMetadata?.courses
+    const cour = user?.unsafeMetadata?.courses;
     const cour2 = cour.concat("c");
     const data = { courses: cour2 };
     
