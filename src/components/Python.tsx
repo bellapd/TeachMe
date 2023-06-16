@@ -77,6 +77,7 @@ export default function Example() {
             onChange={handleSlideChange}
             showStatus={false}
             showThumbs={false}
+            showIndicators={false}
             infiniteLoop
             className="carousel-wrapper"
             renderArrowPrev={(clickHandler, hasPrev) => {

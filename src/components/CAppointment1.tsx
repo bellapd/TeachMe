@@ -3,6 +3,8 @@ import Image from "next/image";
 import { Typography, Checkbox, Button } from "@material-tailwind/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import emailjs from 'emailjs-com';
+
 
 function Appointment() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -48,7 +50,7 @@ function Appointment() {
         </p>
 
         <div className=" inline-block">
-          <p className=" inline-block"> &nbsp; C</p>
+          <p className="coursename inline-block"> &nbsp; C</p>
         </div>
         <br />
         <br />
