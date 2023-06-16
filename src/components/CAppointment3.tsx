@@ -52,6 +52,12 @@ function Appointment() {
     
   };
 
+  const templateParams = {
+    to_name: user?.firstName,
+    from_name: "TeachMe",
+    email: user?.primaryEmailAddress?.emailAddress
+  };
+  
   const sendEmail = (e) => {
     e.preventDefault();
     // INI EDIT
