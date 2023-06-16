@@ -1,6 +1,6 @@
 import { SignIn } from "@clerk/nextjs/app-beta";
 import Image from "next/image";
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { RedirectToSignIn, SignInButton, UserButton } from "@clerk/nextjs";
 import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta/client";
 
 const Signin = () => {
@@ -28,13 +28,12 @@ const Signin = () => {
       <div className="w-1/2 flex justify-center items-center p-7 ml-10">
         <Image src="/images/signin.svg" width={450} height={450} alt="signin" />
       </div>
+
       <div className="w-1/2 flex justify-center items-center p-7">
-        <SignIn
-          path="/signin"
-          routing="path"
-          signUpUrl="/signup"
-          afterSignInUrl="/"
-        />
+        <SignedOut>
+          <SignIn/>
+          <RedirectToSignIn />
+        </SignedOut>
       </div>
     </div>
   );

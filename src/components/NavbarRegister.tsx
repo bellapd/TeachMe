@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import {
   Navbar,
   MobileNav,
@@ -20,7 +19,6 @@ import Image from "next/image";
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
-  const router = useRouter();
 
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown);
@@ -37,9 +35,9 @@ export default function Example() {
     return (
       <>
         <Typography>
-        <a href="/userDashboard" className="flex items-center focus:outline-none">
+        <Link href="/userDashboard" className="flex items-center focus:outline-none">
           Dashboard
-        </a>
+        </Link>
           
         </Typography>
         <SignedIn>
@@ -56,23 +54,14 @@ export default function Example() {
   const navList = (
     <div className="flex items-center gap-6">
       <Typography variant="small" color="blue-gray" className="font-normal">
-        {router.pathname === "/" ? (
-            <a
-              href="#JumpAbout"
-              className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
-            >
-              About
-            </a>
-          ) : (
-              <a href="/#JumpAbout" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
-                About
-              </a>
-          )}
+        <a href="#JumpAbout" className="flex items-center focus:outline-none">
+          About
+        </a>
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <a href="communities" className="flex items-center focus:outline-none">
+        <Link href="/communities" className="flex items-center focus:outline-none">
           Community
-        </a>
+        </Link>
       </Typography>
       <div className="relative">
         <Typography variant="small" color="blue-gray" className="font-normal">
@@ -125,7 +114,7 @@ export default function Example() {
       <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-[#4700C6]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/">
+            <Link href="/dashboard">
               <Image
                 src="/images/logonav.svg"
                 alt="logo"
@@ -136,56 +125,9 @@ export default function Example() {
             <div className="hidden lg:block">{navList}</div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-4">
-              <Dashboard />
-            </div>
-            <IconButton
-              variant="text"
-              className="h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-              ripple={false}
-              onClick={() => setOpenNav(!openNav)}
-            >
-              {openNav ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </IconButton>
+            <Dashboard />
           </div>
         </div>
-        <MobileNav open={openNav}>
-          {navList}
-          <Link href="/signin">
-            <Button size="sm" fullWidth className="mb-2" color="purple">
-              Sign In
-            </Button>
-          </Link>
-        </MobileNav>
       </Navbar>
     </>
   );

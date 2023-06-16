@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import SignUp from "../components/Signup";
-import { useUser, useClerk } from "@clerk/clerk-react";
-import RegisterNavbar from "../components/NavbarRegister";
+import Dashboard from "./dashboard";
+import { useUser, useClerk, SignedOut } from "@clerk/clerk-react";
 
 function signup() {
   const { user } = useUser();
@@ -11,8 +11,8 @@ function signup() {
   if (user && clerkUser) {
     return (
       <div>
-        <RegisterNavbar />
-        <SignUp />
+        <Dashboard />
+
       </div>
     );
   }
