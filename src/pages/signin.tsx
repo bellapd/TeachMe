@@ -2,7 +2,7 @@ import React from "react";
 import Signinpage from "../components/Signin";
 import Navbar from "../components/Navbar";
 import { useUser, useClerk } from "@clerk/clerk-react";
-import RegisterNavbar from "../components/NavbarRegister";
+import Dashboard from "./dashboard";
 
 
 function signin() {
@@ -12,8 +12,7 @@ function signin() {
   if (user && clerkUser) {
     return (
       <div>
-        <RegisterNavbar />
-        <Signinpage />
+        <Dashboard />
       </div>
     );
   }

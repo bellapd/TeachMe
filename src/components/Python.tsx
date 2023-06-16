@@ -6,14 +6,14 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
-import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
+import { useUser, useClerk } from "@clerk/clerk-react";
 
 export default function Example() {
-  
+  const { user } = useUser();
+  const { user: clerkUser } = useClerk();
   const handleSlideChange = () => {
     setActiveCard;
   };
@@ -27,25 +27,25 @@ export default function Example() {
       subtitle: "Python programmer with 99 years of experience",
       description:
         "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
-      link: "/appointment",
+      link: "/appointment/buudisumaker",
     },
     {
         image:
           "/images/python2.svg",
         title: "Queenie",
-        subtitle: "Lyft launching cross-platform service this week",
+        subtitle: "Python programmer with 99 years of experience",
         description:
-          "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-        link: "/appointment",
+          "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
+        link: "/appointment/queenie",
       },
       {
         image:
           "/images/python3.svg",
         title: "Lord Bawi",
-        subtitle: "Lyft launching cross-platform service this week",
+        subtitle: "Python programmer with 99 years of experience",
         description:
-          "Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Yet its own business model disruption is only part of the story.",
-        link: "/appointment",
+          "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
+        link: "/appointment/lordbawi",
       },
     // Add more card objects as needed
   ];
@@ -147,7 +147,8 @@ export default function Example() {
                     </Typography>
                   </div>
                 </CardBody>
-                <div className="flex-col items-center px-56"><a href={card.link} className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873]">
+                <div className="flex-col items-center">
+                  <a href={ user&&clerkUser ? card.link : "/signin"} className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873]">
                     <Button variant="text" className="flex items-center gap-2 text-center">
                       Make an Appointment
                     </Button>

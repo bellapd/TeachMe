@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import {
   Navbar,
   MobileNav,
@@ -12,6 +13,7 @@ import Image from "next/image";
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const router = useRouter();
 
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown);
@@ -27,9 +29,18 @@ export default function Example() {
   const navList = (
     <div className="flex items-center gap-6">
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <a href="#JumpAbout" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
-          About
-        </a>
+      {router.pathname === "/" ? (
+          <a
+            href="#JumpAbout"
+            className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+          >
+            About
+          </a>
+        ) : (
+            <a href="/#JumpAbout" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
+              About
+            </a>
+        )}
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
 
