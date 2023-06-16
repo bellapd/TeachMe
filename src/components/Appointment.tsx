@@ -4,13 +4,65 @@ import { Typography, Checkbox, Button } from "@material-tailwind/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { text } from "stream/consumers";
+import emailjs from "emailjs-com"
+import {useUser } from '@clerk/nextjs';
+
+
+// PUBLIC KEY
+emailjs.init('sMnDmOrgDr6X1RvYG')
+
+// function sendEmail() {
+//     try {
+//       const templateParams = {
+//         // Define the email template parameters
+//         to_name: "Test",
+//         from_name: "TeachMe",
+//       };
+  
+//       // Send the email using the email template ID
+//       const response = emailjs.send(
+//         process.env.EMAILJS_SERVICE_ID,
+//         process.env.EMAILJS_TEMPLATE_ID,
+//         templateParams,
+//         process.env.EMAILJS_USER_ID
+//       );
+//       console.log("Email sent successfully!", response);
+//     } catch (error) {
+//       console.error("Error sending email:", error);
+//     }
+//   }
+  
 
 function Appointment(){
+    const {user} = useUser();
+    const templateParams = {
+        to_name: user?.firstName,
+        from_name: "TeachMe",
+        email: user?.primaryEmailAddress?.emailAddress
+    };
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        // INI EDIT
+        emailjs.send("service_3m16hip", "template_73tx6bx", templateParams, "sMnDmOrgDr6X1RvYG")
+            //INI EDIT  
+        .then((result) => {
+            console.log(result.text);
+            console.log(user?.firstName)
+            console.log(user?.primaryEmailAddress?.emailAddress)
+            })
+            .catch((error) => {
+            console.log(error);
+            console.log(user?.firstName)
+            console.log(user?.primaryEmailAddress?.emailAddress)
+            });
+    };   
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [checkboxChecked, setCheckboxChecked] = useState(false);
     const [showPrompt, setShowPrompt] = useState(false);
 
-    const handleCheckboxChange = () => {
+
+    const handleCheckboxChange = () => { 
         setCheckboxChecked(!checkboxChecked);
         setShowPrompt(false); // Hide the prompt when the checkbox is checked
 
@@ -126,7 +178,7 @@ function Appointment(){
             className={`inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center bg-[#FFE873] text-[#4700C6] rounded-xl`}
             onClick={handleMakeAppointment}
           >
-            <Button variant="text" className="flex items-center gap-2 text-center">
+            <Button onClick={sendEmail} variant="text" className="flex items-center gap-2 text-center">
               Make an Appointment
             </Button>
           </a>
