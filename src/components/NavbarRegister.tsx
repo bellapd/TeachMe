@@ -64,15 +64,13 @@ export default function Example() {
             About
           </a>
         ) : (
-          <Link href="/about">
-            <a className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
+          <Link href="/about" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
               About
-            </a>
           </Link>
         )}
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <Link href="/communities" className="flex items-center focus:outline-none">
+        <Link href="/communities" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
           Community
         </Link>
       </Typography>
@@ -80,7 +78,7 @@ export default function Example() {
         <Typography variant="small" color="blue-gray" className="font-normal">
           <a
             href="#"
-            className="flex items-center focus:outline-none"
+            className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
             onClick={toggleDropdown}
           >
             Course
