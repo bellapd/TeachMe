@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import SuccessJumbo from "../components/successJumbotron";
 import { useUser, useClerk } from "@clerk/clerk-react";
 import RegisterNavbar from "../components/NavbarRegister";
+import RatingPopup from "@/components/RatingPopup";
 
 export default function successAppointment() {
   const { user } = useUser();
@@ -13,6 +14,7 @@ export default function successAppointment() {
       <>
         <RegisterNavbar />
         <SuccessJumbo />
+        <RatingPopup/>
       </>
     );
   }
@@ -20,6 +22,7 @@ export default function successAppointment() {
     <>
     <Navbar></Navbar>
     <SuccessJumbo/>
+    <RatingPopup/>
     </>
   );
 }
