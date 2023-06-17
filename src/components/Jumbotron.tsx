@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+// Edited Framers Motion
 
 function Jumbotron() {
   return (
@@ -45,49 +47,62 @@ function Jumbotron() {
               />
             </div>
           </div>
-          <div className="flex flex-wrap items-center justify-center h-full">
-            <div className="w-full lg:w-1/2 py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 relative">
-              <div className="flex flex-col lg:flex-row items-center">
-                <div className="mb-4 lg:mb-0 lg:mr-4">
-                  <Image
-                    src="/images/jumbotron.svg"
-                    width={400}
-                    height={400}
-                    alt="jumbotron"
-                  />
-                </div>
-                <div className="text-left">
-                  <h1 className="text-4xl font-extrabold tracking-tight leading-none md:text-4xl lg:text-5xl text-white">
-                    Your Personal Mentor Finder.
-                  </h1>
-                  <br />
-                  <p className="text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-0 indent-0 text-left">
-                    “The best way to predict your future is to create it.”
-                  </p>
-                  <br />
-                  <a
-                    href="/signup"
-                    className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-medium text-center text-[#4700C6] rounded-xl bg-[#FFE873] focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex flex-wrap items-center justify-center h-full">
+              <div className="w-full lg:w-1/2 py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 relative">
+                <div className="flex flex-col lg:flex-row items-center">
+                  <div className="mb-4 lg:mb-0 lg:mr-4">
+                    <Image
+                      src="/images/jumbotron.svg"
+                      width={400}
+                      height={400}
+                      alt="jumbotron"
+                    />
+                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1 }}
+                    initial={{ x: -100 }}
+                    animate={{ x: 0 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
                   >
-                    Get started
-                    <svg
-                      aria-hidden="true"
-                      className="ml-2 -mr-1 w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </a>
+                    <div className="text-left">
+                      <h1 className="text-4xl font-extrabold tracking-tight leading-none md:text-4xl lg:text-5xl text-white">
+                        Your Personal Mentor Finder.
+                      </h1>
+                      <br />
+                      <p className="text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-0 indent-0 text-left">
+                        “The best way to predict your future is to create it.”
+                      </p>
+                      <br />
+                      <a
+                        href="/signup"
+                        className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-medium text-center text-[#4700C6] rounded-xl bg-[#FFE873] focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+                      >
+                        Get started
+                        <svg
+                          aria-hidden="true"
+                          className="ml-2 -mr-1 w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
