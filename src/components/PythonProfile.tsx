@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Profile() {
   return (
@@ -26,37 +27,42 @@ function Profile() {
           </p>
           <br />
           <div className="inline-block">
-            <img
+            <Image
               src="/images/lokasi.svg"
               className="inline-block"
               width={17}
               height={24}
+              alt="location"
             />
             <p className="inline-block">&nbsp; England</p>
           </div>
           <br />
           <div className="inline-block">
-            <img
+            <Image
               src="/images/message.svg"
               className="inline-block"
               width={17}
               height={24}
+              alt="message"
             />
             <p className="inline-block">&nbsp; English, French, Thai</p>
           </div>
           <div className="inline-block">
-            <img
+            <Image
               src="/images/edu.svg"
               className="inline-block"
               width={17}
               height={24}
+              alt="edu"
             />
             <p className="inline-block">&nbsp; Hogwart Tech</p>
           </div>
           <br />
           <br />
-          <button className="rounded-full px-10 py-4 mx-2 bg-green-500 text-white font-semibold">
-            Connect
+          <button className="rounded-full px-10 py-4 mx-2 bg-green-500 text-white font-semibold hover:bg-green-700 hover:scale-105 transform transition duration-300">
+            <Link href="https://meet.google.com/uea-qnzp-ibi" target="_blank">
+              Connect
+            </Link>
           </button>
         </div>
         <article
