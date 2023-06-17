@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Profile() {
   return (
@@ -26,64 +27,67 @@ function Profile() {
           </p>
           <br />
           <div className=" inline-block">
-            <img
+            <Image
               src="/images/lokasi.svg"
               className=" inline-block"
               width={17}
               height={24}
-            ></img>
+              alt="location"
+            />
             <p className=" inline-block"> &nbsp; Dutch</p>
           </div>
           <div className=" inline-block">
             <br />
-            <img
+            <Image
               src="/images/message.svg"
               className=" inline-block"
               width={17}
               height={24}
-            ></img>
+              alt="message"
+            />
             <p className=" inline-block"> &nbsp; English, Dutch, German</p>
           </div>
           <div className=" inline-block">
-            <img
+            <Image
               src="/images/edu.svg"
               className=" inline-block"
               width={17}
               height={24}
-            ></img>
+              alt="edu"
+            />
             <p className=" inline-block"> &nbsp; NTU, Taiwan</p>
           </div>
           <br />
           <br />
-          <button className="rounded-full px-10 py-4 mx-2  bg-green-500 text-white font-semibold">
-            Connect
+          <button className="rounded-full px-10 py-4 mx-2 bg-green-500 text-white font-semibold hover:bg-green-700 hover:scale-105 transform transition duration-300">
+            <Link href="https://meet.google.com/uea-qnzp-ibi" target="_blank">
+              Connect
+            </Link>
           </button>
+
         </div>
         <article
           id="Profile2"
           className="float-left bg-white p-6 w-4/5 h-screen text-black overflow-y-auto"
         >
-          <h1 className="align-top  text-left font-bold text-2xl">
-            About me 👤
+          <h1 className="align-top mb-8 text-left font-bold text-2xl">
+            About me  👤
           </h1>
-          <br />
 
-          <h3 className="font-bold text-left font-sans ">
-            C programmer with 99 years of experience
+          <h3 className="font-bold  text-left font-sans ">
+            C programmer with 10 years of experience
           </h3>
-          <hr className="border-6  border-black" />
-          <br />
-          <p className=" font-sans text-mg">
+          <hr className="border-6 mb-8 border-black" />
+
+          <p className=" mb-8 font-sans text-mg">
             I have studied C for the longest time. I have also used it in almost
             all of my projects, be it a huge collaborative project with a big
             company or a personal side hustle. This means I have a wide
             understanding of how to use Python to its fullest.
           </p>
 
-          <br />
+          <p className="align-top mb-8 text-left font-bold text-2xl">Syllabus 📖</p>
 
-          <p className="align-top  text-left font-bold text-2xl">Syllabus 📖</p>
-          <br />
           <div className=" px-6">
             <ul className="list-disc font-sans font-semibold ">
               <p className="font-sans text-mg font-semibold">
@@ -96,16 +100,16 @@ function Profile() {
                 editor)
               </li>
               <li>Writing and running your first C program</li>
-              <br />
-              <p className="font-sans text-mg font-semibold">
+
+              <p className="mt-5 font-sans text-mg font-semibold">
                 Module 2: Basic Syntax and Data Types
               </p>
               <li>C syntax and structure</li>
               <li>Variables and data types (int, float, char)</li>
               <li>Constants and literals</li>
               <li>Input and output operations (printf and scanf)</li>
-              <br />
-              <p className="font-sans text-mg font-semibold">
+
+              <p className="mt-5 font-sans text-mg font-semibold">
                 Module 3: Control Structures
               </p>
               <li>
@@ -114,9 +118,8 @@ function Profile() {
               <li>Looping structures: while, do-while, and for loops</li>
               <li>Switch case statements</li>
               <li>Break and continue statements</li>
-              <br />
 
-              <p className="font-sans text-mg font-semibold">
+              <p className="mt-5 font-sans text-mg font-semibold">
                 Module 4: Pointers
               </p>
               <li>Pointer declaration and initialization</li>
