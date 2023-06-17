@@ -67,7 +67,7 @@ export default function Example() {
               color="blue-gray"
               className="mb-2 px-2"
             >
-              Python
+              Docker
             </Typography>
           </div>
           <Carousel

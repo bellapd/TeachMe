@@ -63,11 +63,12 @@ function Appointment() {
     else{
       const course = [[getFormattedDate(), selectedTime, "Chika", "c"]];
       const cour2 = user?.unsafeMetadata?.courses?.c?.concat(course);
-      const data = { courses: {c : cour2} };
+      const newData = { ...user.unsafeMetadata.courses, ...{"c":cour2} };
+
       
       try {
         const response = await user?.update({
-          unsafeMetadata: data 
+          unsafeMetadata: {courses:newData}
         });
         if (response) {
           console.log('res', response)
