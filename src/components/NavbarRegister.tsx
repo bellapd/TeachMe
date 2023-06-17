@@ -66,7 +66,7 @@ export default function Example() {
             About
           </a>
         ) : (
-          <Link href="/about" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
+          <Link href="/#JumpAbout" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
               About
           </Link>
         )}
