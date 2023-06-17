@@ -5,6 +5,7 @@ import Howtouse from "../components/Howtouse";
 import Navbar from "../components/Navbar";
 import { useUser, useClerk } from "@clerk/clerk-react";
 import RegisterNavbar from "../components/NavbarRegister";
+import { Reveal } from "@/components/reveal";
 
 export default function Home() {
   const { user } = useUser();

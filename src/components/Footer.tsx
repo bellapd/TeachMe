@@ -36,10 +36,7 @@ function Footer() {
                     </a>
                   </li>
                   <li>
-                    <Link
-                      href="/communities"
-                      className="hover:underline"
-                    >
+                    <Link href="/communities" className="hover:underline">
                       Communities
                     </Link>
                   </li>
@@ -59,7 +56,10 @@ function Footer() {
               . All Rights Reserved.
             </span>
             <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-              <Link href="#" className="text-white hover:text-white">
+              <Link
+                href="https://discord.gg/QyJebfGSGk"
+                className="text-white hover:text-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-7 h-7"
@@ -72,8 +72,10 @@ function Footer() {
                 <span className="sr-only">Discord page</span>
               </Link>
 
-              <Link href="https://github.com/bellapd/teachme" className="text-white hover:text-white">
-
+              <Link
+                href="https://github.com/bellapd/teachme"
+                className="text-white hover:text-white"
+              >
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
