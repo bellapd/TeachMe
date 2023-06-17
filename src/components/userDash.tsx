@@ -7,6 +7,8 @@ import { text } from "stream/consumers";
 import emailjs from "emailjs-com";
 import { useUser } from "@clerk/nextjs";
 import { data } from "autoprefixer";
+import { NextResponse } from "next/server";
+import "font-awesome/css/font-awesome.min.css";
 import Link from "next/link";
 
 // PUBLIC KEY

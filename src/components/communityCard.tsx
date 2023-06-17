@@ -49,7 +49,7 @@ export default function CardComponentSHEESH() {
                 <div className="bg-[#F6F4FC] rounded-lg p-8 md:p-12 items-center justify-center text-center">
                     
                     <Image
-                    src="/images/c-plain.svg"
+                    src="/images/c.svg"
                     width={300}
                     height={300}
                     alt="find mentor"
@@ -81,7 +81,7 @@ export default function CardComponentSHEESH() {
 
                 <div className="bg-[#F6F4FC] rounded-lg p-8 md:p-12 items-center justify-center text-center">
                     <Image
-                    src="/images/pythonLogo.svg"
+                    src="/images/python.svg"
                     width={300}
                     height={300}
                     alt="find mentor"
