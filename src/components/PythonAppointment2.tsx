@@ -11,16 +11,44 @@ emailjs.init('sMnDmOrgDr6X1RvYG')
 
 function Appointment() {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState('9:00');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [showPrompt, setShowPrompt] = useState(false);
   const {user} = useUser();
 
+  const handleTimeChange = (event) => {
+    setSelectedTime(event.target.value); // Update selected time
+  };
+
+  const getFormattedDate = () => {
+    const year = selectedDate.getFullYear();
+    const month = selectedDate.getMonth() + 1; // Adding 1 since getMonth() returns zero-based month index
+    const day = selectedDate.getDate();
+    return `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+  };
+
   const updateMetadata = async () => {
-    const data= {};
     const cour = user?.unsafeMetadata?.courses;
     console.log('res', cour);
     if(cour === undefined){
-      const data = { courses: ["python"] };
+      const data = { courses: {"python": [[getFormattedDate(), selectedTime, "Queenie", "python"]]}};
+      console.log("data", data);
+      try {
+        const response = await user?.update({
+          unsafeMetadata: data 
+        });
+        if (response) {
+          console.log('res', response)
+          // console.log(myarr)
+        }
+      } catch (err) {
+        console.error('error', err)
+      }
+    }
+    else if(cour!==undefined && cour?.python===undefined){
+      const course = {"c": [[getFormattedDate(), selectedTime, "Queenie", "python"]]};
+      const cour2 = {...cour, ...course};
+      const data = { courses: cour2};
       try {
         const response = await user?.update({
           unsafeMetadata: data 
@@ -34,13 +62,13 @@ function Appointment() {
       }
     }
     else{
-      const cour = user?.unsafeMetadata?.courses;
-      const cour2 = cour.concat("python");
-      const data = { courses: cour2 };
+      const course = [[getFormattedDate(), selectedTime, "Queenie", "python"]];
+      const cour2 = user?.unsafeMetadata?.courses?.python?.concat(course);
+      const newData = { ...user.unsafeMetadata.courses, ...{"python":cour2} };
       
       try {
         const response = await user?.update({
-          unsafeMetadata: data 
+          unsafeMetadata: {courses:newData}
         });
         if (response) {
           console.log('res', response)
@@ -50,7 +78,6 @@ function Appointment() {
         console.error('error', err)
       }
     }
-    
   };
 
   const templateParams = {
@@ -95,7 +122,30 @@ function Appointment() {
     const handleChangeText = (event) =>{
             setText(event.target.value);
     };
-
+    const generateTimeOptions = () => {
+      const options = [];
+      const startTime = 9; // 9:00 AM
+      const endTime = 17; // 5:00 PM
+  
+      for (let hour = startTime; hour <= endTime; hour++) {
+        for (let minute = 0; minute < 60; minute += 30) {
+          const formattedHour = hour.toString().padStart(2, "0");
+          const formattedMinute = minute.toString().padStart(2, "0");
+          const time = `${formattedHour}:${formattedMinute}`;
+          const displayTime = `${hour}:${formattedMinute}`;
+          if (hour === endTime && minute === 30) {
+            break; // Skip the time "17:30"
+          }
+          options.push(
+            <option key={time} value={time}>
+              {displayTime}
+            </option>
+          );
+        }
+      }
+  
+      return options;
+    };
   return (
     <div id="BagProf" className="min-h-screen">
       <div
@@ -141,20 +191,8 @@ function Appointment() {
           <p className="text-left font-bold text-2xl inline-block "> Time </p>
           <p className=" inline-block">&nbsp;&nbsp;</p>
           <img src="/images/time.svg " className=" inline-block  w-8 h-8"></img>
-          <select data-te-select-init>
-            <option value="1">6:00</option>
-            <option value="2">7:00</option>
-            <option value="3">8:00</option>
-            <option value="4">9:00</option>
-            <option value="5">10:00</option>
-            <option value="6">11:00</option>
-            <option value="7">12:00</option>
-            <option value="8">13:00</option>
-            <option value="9">14:00</option>
-            <option value="10">15:00</option>
-            <option value="11">16:00</option>
-            <option value="12">17:00</option>
-            <option value="13">18:00</option>
+          <select data-te-select-init onChange={(time)=>handleTimeChange(time)}>
+            {generateTimeOptions()}
           </select>
         </div>
         <br />

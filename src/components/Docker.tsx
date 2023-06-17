@@ -53,6 +53,7 @@ export default function Example() {
         <div className="relative h-full">
           <div className="text-black py-12 px-64 flex items-center">
             <Image
+
               src="/images/docker.svg"
               width={81}
               height={50}
