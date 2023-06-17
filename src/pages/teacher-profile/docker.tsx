@@ -1,10 +1,8 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Profile from "../components/Profile";
-import Footer from "../components/Footer";
-import Example from "../components/Navbar";
+import Navbar from "../../components/Navbar";
+import Profile from "../../components/DockerProfile";
 import { useUser, useClerk } from "@clerk/clerk-react";
-import RegisterNavbar from "../components/NavbarRegister";
+import RegisterNavbar from "../../components/NavbarRegister";
 
 export default function Coba2() {
   const { user } = useUser();
