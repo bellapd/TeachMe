@@ -29,23 +29,28 @@ export default function Example() {
   const navList = (
     <div className="flex items-center gap-6">
       <Typography variant="small" color="blue-gray" className="font-normal">
-      {router.pathname === "/" ? (
-          <a
+        {router.pathname === "/" ? (
+          <Link
             href="#JumpAbout"
             className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
           >
             About
-          </a>
+          </Link>
         ) : (
-            <a href="/#JumpAbout" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
-              About
-            </a>
+          <Link
+            href="/#JumpAbout"
+            className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+          >
+            About
+          </Link>
         )}
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
-
         {/* <a href="/profiledetails" className="flex items-center focus:outline-none"></a> */}
-        <a href="communities" className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
+        <a
+          href="communities"
+          className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+        >
           Community
         </a>
       </Typography>
@@ -100,7 +105,10 @@ export default function Example() {
       <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-[#4700C6]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
+            <Link
+              href="/"
+              className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+            >
               <Image
                 src="/images/logonav.svg"
                 alt="logo"

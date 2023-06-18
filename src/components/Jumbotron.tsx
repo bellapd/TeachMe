@@ -78,7 +78,7 @@ function Jumbotron() {
                         “The best way to predict your future is to create it.”
                       </p>
                       <br />
-                      <a
+                      <Link
                         href="/signup"
                         className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-medium text-center text-[#4700C6] rounded-xl bg-[#FFE873] focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
                       >
@@ -96,7 +96,7 @@ function Jumbotron() {
                             clipRule="evenodd"
                           ></path>
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </motion.div>
                 </div>

@@ -27,32 +27,38 @@ function Profile() {
           </p>
           <br />
           <div className=" inline-block">
-            <img
+            <Image
               src="/images/lokasi.svg"
               className=" inline-block"
               width={17}
               height={24}
-            ></img>
+              alt="location"
+            ></Image>
             <p className=" inline-block"> &nbsp; Indonesia</p>
           </div>
           <div className=" inline-block">
             <br />
-            <img
+            <Image
               src="/images/message.svg"
               className=" inline-block"
               width={17}
               height={24}
-            ></img>
+              alt="message"
+            ></Image>
             <p className=" inline-block"> &nbsp; English, Sundanese</p>
           </div>
           <div className=" inline-block">
-            <img
+            <Image
               src="/images/edu.svg"
               className=" inline-block"
               width={17}
               height={24}
-            ></img>
-            <p className=" inline-block"> &nbsp; Institute of Technology, Bandung</p>
+              alt="edu"
+            ></Image>
+            <p className=" inline-block">
+              {" "}
+              &nbsp; Institute of Technology, Bandung
+            </p>
           </div>
           <br />
           <br />
