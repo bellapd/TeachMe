@@ -61,7 +61,7 @@ export default function Example() {
   ];
 
 
-  const handleSlideChange = (index) => {
+  const handleSlideChange = (index:any) => {
     setActiveCard(index);
   };
 

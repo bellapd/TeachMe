@@ -21,7 +21,7 @@ function Appointment() {
   const [showPrompt, setShowPrompt] = useState(false);
   const { user } = useUser();
 
-  const handleTimeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTimeChange = (event: any) => {
     setSelectedTime(event.target.value); // Update selected time
   };
 
@@ -48,12 +48,11 @@ function Appointment() {
         });
         if (response) {
           console.log("res", response);
-          // console.log(myarr)
         }
       } catch (err) {
         console.error("error", err);
       }
-    } else if (cour !== undefined && cour?.c === undefined) {
+    } else if (cour && !cour.hasOwnProperty("c")) {
       const course = { c: [[getFormattedDate(), selectedTime, "Frans", "c"]] };
       const cour2 = { ...cour, ...course };
       const data = { courses: cour2 };
@@ -63,32 +62,34 @@ function Appointment() {
         });
         if (response) {
           console.log("res", response);
-          // console.log(myarr)
         }
       } catch (err) {
         console.error("error", err);
       }
     } else {
       const course = [[getFormattedDate(), selectedTime, "Frans", "c"]];
-      const cour2 = user?.unsafeMetadata?.courses?.c?.concat(course);
-      const newData = { ...user.unsafeMetadata.courses, ...{ c: cour2 } };
-
+      const cour2 = user?.unsafeMetadata?.courses?.c?.concat(course) || [];
+       const newData = {
+        ...(user?.unsafeMetadata?.courses || {}),
+        ...{ c: cour2 },
+      };
+  
       try {
         const response = await user?.update({
-          unsafeMetadata: { courses: newData },
+          unsafeMetadata: newData,
         });
         if (response) {
           console.log("res", response);
-          // console.log(myarr)
         }
       } catch (err) {
         console.error("error", err);
       }
     }
   };
+  
   const [text, setText] = useState("");
 
-  const handleChangeText = (event) => {
+  const handleChangeText = (event:any) => {
     const text = setText(event.target.value);
   };
 
@@ -246,7 +247,7 @@ function Appointment() {
         <div className=" inline-block">
           <DatePicker
             selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
+            onChange={(date) => setSelectedDate(date || new Date())}
             className=" py-2 inline-block"
           />
         </div>

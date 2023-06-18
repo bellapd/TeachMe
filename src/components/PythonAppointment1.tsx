@@ -20,7 +20,7 @@ function Appointment() {
   const [showPrompt, setShowPrompt] = useState(false);
   const { user } = useUser();
 
-  const handleTimeChange = (event) => {
+  const handleTimeChange = (event:any) => {
     setSelectedTime(event.target.value); // Update selected time
   };
 
@@ -78,7 +78,10 @@ function Appointment() {
         [getFormattedDate(), selectedTime, "Buudi Sumaker", "python"],
       ];
       const cour2 = user?.unsafeMetadata?.courses?.python?.concat(course);
-      const newData = { ...user.unsafeMetadata.courses, ...{ python: cour2 } };
+      const newData = {
+        ...(user?.unsafeMetadata?.courses || {}),
+        ...{ python: cour2 },
+      };
 
       try {
         const response = await user?.update({
@@ -96,7 +99,7 @@ function Appointment() {
 
   const [text, setText] = useState("");
 
-  const handleChangeText = (event) => {
+  const handleChangeText = (event:any) => {
     const text = setText(event.target.value);
   };
 
@@ -252,9 +255,9 @@ function Appointment() {
           Date
         </Typography>
         <div className=" inline-block">
-          <DatePicker
+        <DatePicker
             selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
+            onChange={(date) => setSelectedDate(date || new Date())}
             className=" py-2 inline-block"
           />
         </div>
