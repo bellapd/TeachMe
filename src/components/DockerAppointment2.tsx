@@ -136,12 +136,6 @@ function Appointment() {
     time: selectedTime,
     course: coursename,
     note : text,
-
-
-  const handleCheckboxChange = () => {
-    setCheckboxChecked(!checkboxChecked);
-    setShowPrompt(false); // Hide the prompt when the checkbox is checked
-
   };
   
   const sendEmailTeacher = () => {
