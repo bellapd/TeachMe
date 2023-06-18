@@ -228,7 +228,13 @@ function Appointment() {
         <div className="w-full md:w-72 px-5  inline-block">
           <p className="text-left font-bold text-2xl inline-block "> Time </p>
           <p className=" inline-block">&nbsp;&nbsp;</p>
-          <img src="/images/time.svg" className=" inline-block w-8 h-8"></img>
+          <Image
+            src="/images/time.svg"
+            width={32}
+            height={32}
+            className=" inline-block w-8 h-8"
+            alt="time"
+          ></Image>
           <select
             data-te-select-init
             onChange={(time) => handleTimeChange(time)}

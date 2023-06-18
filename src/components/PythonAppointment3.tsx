@@ -3,15 +3,15 @@ import Image from "next/image";
 import { Typography, Checkbox, Button } from "@material-tailwind/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import emailjs from 'emailjs-com';
-import { useUser } from '@clerk/nextjs';
+import emailjs from "emailjs-com";
+import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 
 // PUBLIC KEY
-emailjs.init('sMnDmOrgDr6X1RvYG')
+emailjs.init("sMnDmOrgDr6X1RvYG");
 var coursename = "Python";
-var MentorName ="LORD BAWI"
-var targetEmail ="fernando.mikael.stww@gmail.com"
+var MentorName = "LORD BAWI";
+var targetEmail = "fernando.mikael.stww@gmail.com";
 
 function Appointment() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -28,62 +28,69 @@ function Appointment() {
     const year = selectedDate.getFullYear();
     const month = selectedDate.getMonth() + 1; // Adding 1 since getMonth() returns zero-based month index
     const day = selectedDate.getDate();
-    return `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+    return `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   const updateMetadata = async () => {
     const cour = user?.unsafeMetadata?.courses;
-    console.log('res', cour);
+    console.log("res", cour);
     if (cour === undefined) {
-      const data = { courses: { "python": [[getFormattedDate(), selectedTime, "Lord Bawi", "python"]] } };
+      const data = {
+        courses: {
+          python: [[getFormattedDate(), selectedTime, "Lord Bawi", "python"]],
+        },
+      };
       console.log("data", data);
       try {
         const response = await user?.update({
-          unsafeMetadata: data
+          unsafeMetadata: data,
         });
         if (response) {
-          console.log('res', response)
+          console.log("res", response);
           // console.log(myarr)
         }
       } catch (err) {
-        console.error('error', err)
+        console.error("error", err);
       }
-    }
-    else if (cour !== undefined && cour?.python === undefined) {
-      const course = { "python": [[getFormattedDate(), selectedTime, "Lord Bawi", "python"]] };
+    } else if (cour !== undefined && cour?.python === undefined) {
+      const course = {
+        python: [[getFormattedDate(), selectedTime, "Lord Bawi", "python"]],
+      };
       const cour2 = { ...cour, ...course };
       const data = { courses: cour2 };
       try {
         const response = await user?.update({
-          unsafeMetadata: data
+          unsafeMetadata: data,
         });
         if (response) {
-          console.log('res', response)
+          console.log("res", response);
           // console.log(myarr)
         }
       } catch (err) {
-        console.error('error', err)
+        console.error("error", err);
       }
-    }
-    else {
-      const course = [[getFormattedDate(), selectedTime, "Lord Bawi", "python"]];
+    } else {
+      const course = [
+        [getFormattedDate(), selectedTime, "Lord Bawi", "python"],
+      ];
       const cour2 = user?.unsafeMetadata?.courses?.python?.concat(course);
-      const newData = { ...user.unsafeMetadata.courses, ...{ "python": cour2 } };
+      const newData = { ...user.unsafeMetadata.courses, ...{ python: cour2 } };
 
       try {
         const response = await user?.update({
-          unsafeMetadata: { courses: newData }
+          unsafeMetadata: { courses: newData },
         });
         if (response) {
-          console.log('res', response)
+          console.log("res", response);
           // console.log(myarr)
         }
       } catch (err) {
-        console.error('error', err)
+        console.error("error", err);
       }
     }
   };
-
 
   const handleCheckboxChange = () => {
     setCheckboxChecked(!checkboxChecked);
@@ -99,35 +106,40 @@ function Appointment() {
     }
   };
 
-  const [text,setText] = useState("");
+  const [text, setText] = useState("");
 
-  const handleChangeText = (event) =>{
+  const handleChangeText = (event) => {
     const text = setText(event.target.value);
-
   };
 
   const templateParams = {
     to_name: user?.firstName,
     from_name: "TeachMe",
-    email: user?.primaryEmailAddress?.emailAddress
+    email: user?.primaryEmailAddress?.emailAddress,
   };
 
   const sendEmail = () => {
     // INI EDIT
-    emailjs.send("service_3m16hip", "template_73tx6bx", templateParams, "sMnDmOrgDr6X1RvYG")
-      //INI EDIT  
+    emailjs
+      .send(
+        "service_3m16hip",
+        "template_73tx6bx",
+        templateParams,
+        "sMnDmOrgDr6X1RvYG"
+      )
+      //INI EDIT
       .then((result) => {
         console.log(result.text);
-        console.log(user?.firstName)
-        console.log(user?.primaryEmailAddress?.emailAddress)
+        console.log(user?.firstName);
+        console.log(user?.primaryEmailAddress?.emailAddress);
       })
       .catch((error) => {
         console.log(error);
-        console.log(user?.firstName)
-        console.log(user?.primaryEmailAddress?.emailAddress)
-        });
-  };  
-  
+        console.log(user?.firstName);
+        console.log(user?.primaryEmailAddress?.emailAddress);
+      });
+  };
+
   const teacherEmailParams = {
     to_name: MentorName,
     from_name: user?.firstName,
@@ -135,36 +147,36 @@ function Appointment() {
     date: getFormattedDate(),
     time: selectedTime,
     course: coursename,
-    note : text,
+    note: text,
   };
 
   const sendEmailTeacher = () => {
     emailjs.send(
-        "service_3m16hip", //Service ID
-        "template_0yqoorh", //Template ID
-        teacherEmailParams, 
-        "sMnDmOrgDr6X1RvYG" //User ID
-    )
-};
-    const generateTimeOptions = () => {
-      const options = [];
-      const startTime = 9; // 9:00 AM
-      const endTime = 17; // 5:00 PM
-  
-      for (let hour = startTime; hour <= endTime; hour++) {
-        for (let minute = 0; minute < 60; minute += 30) {
-          const formattedHour = hour.toString().padStart(2, "0");
-          const formattedMinute = minute.toString().padStart(2, "0");
-          const time = `${formattedHour}:${formattedMinute}`;
-          const displayTime = `${hour}:${formattedMinute}`;
-          if (hour === endTime && minute === 30) {
-            break; // Skip the time "17:30"
-          }
-          options.push(
-            <option key={time} value={time}>
-              {displayTime}
-            </option>
-          );
+      "service_3m16hip", //Service ID
+      "template_0yqoorh", //Template ID
+      teacherEmailParams,
+      "sMnDmOrgDr6X1RvYG" //User ID
+    );
+  };
+  const generateTimeOptions = () => {
+    const options = [];
+    const startTime = 9; // 9:00 AM
+    const endTime = 17; // 5:00 PM
+
+    for (let hour = startTime; hour <= endTime; hour++) {
+      for (let minute = 0; minute < 60; minute += 30) {
+        const formattedHour = hour.toString().padStart(2, "0");
+        const formattedMinute = minute.toString().padStart(2, "0");
+        const time = `${formattedHour}:${formattedMinute}`;
+        const displayTime = `${hour}:${formattedMinute}`;
+        if (hour === endTime && minute === 30) {
+          break; // Skip the time "17:30"
+        }
+        options.push(
+          <option key={time} value={time}>
+            {displayTime}
+          </option>
+        );
       }
     }
 
@@ -197,11 +209,13 @@ function Appointment() {
         </p>
 
         <div className=" inline-block">
-          <p className="mt-3 coursename inline-block font-semibold"> &nbsp; Python</p>
+          <p className="mt-3 coursename inline-block font-semibold">
+            {" "}
+            &nbsp; Python
+          </p>
         </div>
         <br />
         <br />
-
       </div>
       <article
         id="Profile2"
@@ -215,8 +229,17 @@ function Appointment() {
         <div className="w-full md:w-72 px-5  inline-block">
           <p className="text-left font-bold text-2xl inline-block "> Time </p>
           <p className=" inline-block">&nbsp;&nbsp;</p>
-          <img src="/images/time.svg" className=" inline-block w-8 h-8"></img>
-          <select data-te-select-init onChange={(time) => handleTimeChange(time)}>
+          <Image
+            src="/images/time.svg"
+            className=" inline-block w-8 h-8"
+            alt="time"
+            width={32}
+            height={32}
+          ></Image>
+          <select
+            data-te-select-init
+            onChange={(time) => handleTimeChange(time)}
+          >
             {generateTimeOptions()}
           </select>
         </div>
@@ -260,19 +283,23 @@ function Appointment() {
               </Typography>
             )}
           </div>
-           <div className="flex-col items-center px-4 md:px-80 mt-5">
-           <Link
+          <div className="flex-col items-center px-4 md:px-80 mt-5">
+            <Link
               href={checkboxChecked ? "/successAppointment" : "#"}
               onClick={handleMakeAppointment}
             >
-            <Button onClick={() => {
-              // call sendemail
-              sendEmail();
-              sendEmailTeacher();
-              updateMetadata();
-              }} variant="text" className="rounded-full px-10 py-4 mb-4 text-center text-[#4700C6] bg-[#FFE873] hover:bg-[#4700C6] hover:text-[#FFE873] hover:scale-105 transform transition duration-300 text-sm">
-                          Make an Appointment
-            </Button>
+              <Button
+                onClick={() => {
+                  // call sendemail
+                  sendEmail();
+                  sendEmailTeacher();
+                  updateMetadata();
+                }}
+                variant="text"
+                className="rounded-full px-10 py-4 mb-4 text-center text-[#4700C6] bg-[#FFE873] hover:bg-[#4700C6] hover:text-[#FFE873] hover:scale-105 transform transition duration-300 text-sm"
+              >
+                Make an Appointment
+              </Button>
             </Link>
           </div>
         </div>

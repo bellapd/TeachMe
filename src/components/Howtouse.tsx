@@ -62,7 +62,7 @@ function Howtouse() {
                   Find
                 </h5>
                 <p className="font-normal text-gray-700">
-                  Specify whether you're looking for a mentor or mentee, and
+                  Specify whether you are looking for a mentor or mentee, and
                   select your preferred field or subject of interest. TeachMe
                   suggest suitable matches for you.
                 </p>
@@ -97,9 +97,9 @@ function Howtouse() {
                   Meet
                 </h5>
                 <p className="font-normal text-gray-700">
-                  TeachMe's scheduling feature makes it easy to coordinate and
-                  stay organized. Whether it's virtual video calls, in-person
-                  meetups, or a combination of both, it's up to you.
+                  TeachMe scheduling feature makes it easy to coordinate and
+                  stay organized. Whether its virtual video calls, in-person
+                  meetups, or a combination of both, its up to you.
                 </p>
               </div>
             </motion.div>
@@ -132,7 +132,7 @@ function Howtouse() {
                 </h5>
                 <p className="font-normal text-gray-700">
                   Follow the established learning plan, set goals, and track
-                  your progress. Take advantage of TeachMe's resources, such as
+                  your progress. Take advantage of TeachMe resources, such as
                   document sharing, task management, and progress tracking
                   tools.
                 </p>

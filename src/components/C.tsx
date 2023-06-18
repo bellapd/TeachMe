@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import {
   Card,
   CardHeader,
@@ -57,7 +57,7 @@ export default function Example() {
     // Add more card objects as needed
   ];
 
-  const handleSlideChange = (index) => {
+  const handleSlideChange = (index: SetStateAction<number>) => {
     setActiveCard(index);
   };
 
