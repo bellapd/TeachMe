@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import Profile from "../../components/PythonProfile";
+import Profile from "../../components/AgusProfile";
 import { useUser, useClerk } from "@clerk/clerk-react";
 import RegisterNavbar from "../../components/NavbarRegister";
 

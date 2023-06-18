@@ -7,6 +7,7 @@ import { text } from "stream/consumers";
 import emailjs from "emailjs-com";
 import { useUser } from "@clerk/nextjs";
 import { data } from "autoprefixer";
+import Link from "next/link";
 
 // PUBLIC KEY
 emailjs.init("sMnDmOrgDr6X1RvYG");
