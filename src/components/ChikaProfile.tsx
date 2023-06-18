@@ -8,7 +8,7 @@ function Profile() {
         <div className="bg-purple-200 p-6 w-full md:w-1/5 h-auto md:h-screen flex flex-col justify-center items-center text-black">
           <Image
             className="rounded-full"
-            src="/images/cteacher.svg"
+            src="/images/c3.svg"
             width={200}
             height={200}
             alt="profilepic"
@@ -16,7 +16,7 @@ function Profile() {
           <br />
           <br />
           <p className="font-serif font-bold text-3xl text-center capitalize text-purple-800">
-            Frans
+            Chika
           </p>
           <br />
           <div className="inline-block">
@@ -27,7 +27,7 @@ function Profile() {
               height={24}
               alt="location"
             />
-            <p className="inline-block"> &nbsp; Dutch</p>
+            <p className="inline-block"> &nbsp; Belarus</p>
           </div>
           <div className="inline-block">
             <br />
@@ -38,7 +38,7 @@ function Profile() {
               height={24}
               alt="message"
             />
-            <p className="inline-block"> &nbsp; English, Dutch, German</p>
+            <p className="inline-block"> &nbsp; English</p>
           </div>
           <div className="inline-block">
             <Image
@@ -48,7 +48,7 @@ function Profile() {
               height={24}
               alt="edu"
             />
-            <p className="mb-8 inline-block"> &nbsp; NTU, Taiwan</p>
+            <p className="mb-8 inline-block"> &nbsp; Nanyang Tech, Singapore</p>
           </div>
           <button className="rounded-full px-10 py-4 mx-2 bg-green-500 text-white font-semibold hover:bg-green-700 hover:scale-105 transform transition duration-300">
             <Link href="https://meet.google.com/uea-qnzp-ibi" target="_blank">
@@ -68,7 +68,7 @@ function Profile() {
             I have studied C for the longest time. I have also used it in almost
             all of my projects, be it a huge collaborative project with a big
             company or a personal side hustle. This means I have a wide
-            understanding of how to use Python to its fullest.
+            understanding of how to use C to its fullest.
           </p>
           <p className="align-top mb-8 text-left font-bold text-2xl">Syllabus 📖</p>
           <div className="px-6">

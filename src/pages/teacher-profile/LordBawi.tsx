@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import Profile from "../../components/DockerProfile";
+import Profile from "../../components/LordBawiProfile";
 import { useUser, useClerk } from "@clerk/clerk-react";
 import RegisterNavbar from "../../components/NavbarRegister";
 
