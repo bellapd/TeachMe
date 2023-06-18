@@ -148,13 +148,6 @@ function Appointment() {
     }
   };
 
-
-  const [text, setText] = useState("");
-
-  const handleChangeText = (event) => {
-    setText(event.target.value);
-  };
-
   const generateTimeOptions = () => {
     const options = [];
     const startTime = 9; // 9:00 AM
