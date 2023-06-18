@@ -57,7 +57,7 @@ export default function Example() {
     // Add more card objects as needed
   ];
 
-  const handleSlideChange = (index: SetStateAction<number>) => {
+  const handleSlideChange = (index:any) => {
     setActiveCard(index);
   };
 
