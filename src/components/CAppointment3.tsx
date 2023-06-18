@@ -7,6 +7,9 @@ import emailjs from 'emailjs-com';
 import { useUser } from '@clerk/nextjs';
 import Link from "next/link";
 
+var coursename = "C";
+var MentorName = "Chika"
+var targetEmail ="fernando.mikael.stww@gmail.com"
 // PUBLIC KEY
 emailjs.init('sMnDmOrgDr6X1RvYG')
 
@@ -81,14 +84,22 @@ function Appointment() {
     }
   };
 
+  const [text,setText] = useState("");
+
+  const handleChangeText = (event) =>{
+    const text = setText(event.target.value);
+  
+  };
+  
   const templateParams = {
     to_name: user?.firstName,
     from_name: "TeachMe",
     email: user?.primaryEmailAddress?.emailAddress
   };
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  
+  const sendEmail = () => {
+
     // INI EDIT
     emailjs.send("service_3m16hip", "template_73tx6bx", templateParams, "sMnDmOrgDr6X1RvYG")
       //INI EDIT  
@@ -101,7 +112,26 @@ function Appointment() {
         console.log(error);
         console.log(user?.firstName)
         console.log(user?.primaryEmailAddress?.emailAddress)
-      });
+        });
+  };  
+  
+  const teacherEmailParams = {
+    to_name: MentorName,
+    from_name: user?.firstName,
+    email: targetEmail,
+    date: getFormattedDate(),
+    time: selectedTime,
+    course: coursename,
+    note : text,
+  };
+  
+  const sendEmailTeacher = () => {
+    emailjs.send(
+        "service_3m16hip", //Service ID
+        "template_0yqoorh", //Template ID
+        teacherEmailParams, 
+        "sMnDmOrgDr6X1RvYG" //User ID
+    )
   };
 
   const handleCheckboxChange = () => {
@@ -118,25 +148,21 @@ function Appointment() {
     }
   };
 
-  const [text, setText] = useState("");
-
-  const handleChangeText = (event) => {
-    setText(event.target.value);
-  };
-
-  const generateTimeOptions = () => {
-    const options = [];
-    const startTime = 9; // 9:00 AM
-    const endTime = 17; // 5:00 PM
-
-    for (let hour = startTime; hour <= endTime; hour++) {
-      for (let minute = 0; minute < 60; minute += 30) {
-        const formattedHour = hour.toString().padStart(2, "0");
-        const formattedMinute = minute.toString().padStart(2, "0");
-        const time = `${formattedHour}:${formattedMinute}`;
-        const displayTime = `${hour}:${formattedMinute}`;
-        if (hour === endTime && minute === 30) {
-          break; // Skip the time "17:30"
+  
+    const generateTimeOptions = () => {
+      const options = [];
+      const startTime = 9; // 9:00 AM
+      const endTime = 17; // 5:00 PM
+  
+      for (let hour = startTime; hour <= endTime; hour++) {
+        for (let minute = 0; minute < 60; minute += 30) {
+          const formattedHour = hour.toString().padStart(2, "0");
+          const formattedMinute = minute.toString().padStart(2, "0");
+          const time = `${formattedHour}:${formattedMinute}`;
+          const displayTime = `${hour}:${formattedMinute}`;
+          if (hour === endTime && minute === 30) {
+            break; // Skip the time "17:30"
+    
         }
         options.push(
           <option key={time} value={time}>

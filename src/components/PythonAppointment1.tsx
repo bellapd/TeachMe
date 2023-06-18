@@ -7,6 +7,9 @@ import emailjs from 'emailjs-com';
 import { useUser } from '@clerk/nextjs';
 import Link from "next/link";
 
+var coursename = "Python";
+var MentorName ="Buudi Sumaker"
+var targetEmail ="fernando.mikael.stww@gmail.com"
 // PUBLIC KEY
 emailjs.init('sMnDmOrgDr6X1RvYG')
 
@@ -20,6 +23,7 @@ function Appointment() {
   const handleTimeChange = (event) => {
     setSelectedTime(event.target.value); // Update selected time
   };
+
 
   const getFormattedDate = () => {
     const year = selectedDate.getFullYear();
@@ -81,14 +85,20 @@ function Appointment() {
     }
   };
 
+  const [text,setText] = useState("");
+
+  const handleChangeText = (event) =>{
+    const text = setText(event.target.value);
+
+  };
+
   const templateParams = {
     to_name: user?.firstName,
     from_name: "TeachMe",
     email: user?.primaryEmailAddress?.emailAddress
   };
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const sendEmail = () => {
     // INI EDIT
     emailjs.send("service_3m16hip", "template_73tx6bx", templateParams, "sMnDmOrgDr6X1RvYG")
       //INI EDIT  
@@ -101,8 +111,27 @@ function Appointment() {
         console.log(error);
         console.log(user?.firstName)
         console.log(user?.primaryEmailAddress?.emailAddress)
-      });
+        });
+  };  
+  
+  const teacherEmailParams = {
+    to_name: MentorName,
+    from_name: user?.firstName,
+    email: targetEmail,
+    date: getFormattedDate(),
+    time: selectedTime,
+    course: coursename,
+    note : text,
   };
+
+  const sendEmailTeacher = () => {
+    emailjs.send(
+        "service_3m16hip", //Service ID
+        "template_0yqoorh", //Template ID
+        teacherEmailParams, 
+        "sMnDmOrgDr6X1RvYG" //User ID
+    )
+};
 
   const handleCheckboxChange = () => {
     setCheckboxChecked(!checkboxChecked);
@@ -118,25 +147,19 @@ function Appointment() {
     }
   };
 
-  const [text, setText] = useState("");
-
-  const handleChangeText = (event) => {
-    setText(event.target.value);
-  };
-
-  const generateTimeOptions = () => {
-    const options = [];
-    const startTime = 9; // 9:00 AM
-    const endTime = 17; // 5:00 PM
-
-    for (let hour = startTime; hour <= endTime; hour++) {
-      for (let minute = 0; minute < 60; minute += 30) {
-        const formattedHour = hour.toString().padStart(2, "0");
-        const formattedMinute = minute.toString().padStart(2, "0");
-        const time = `${formattedHour}:${formattedMinute}`;
-        const displayTime = `${hour}:${formattedMinute}`;
-        if (hour === endTime && minute === 30) {
-          break; // Skip the time "17:30"
+    const generateTimeOptions = () => {
+      const options = [];
+      const startTime = 9; // 9:00 AM
+      const endTime = 17; // 5:00 PM
+  
+      for (let hour = startTime; hour <= endTime; hour++) {
+        for (let minute = 0; minute < 60; minute += 30) {
+          const formattedHour = hour.toString().padStart(2, "0");
+          const formattedMinute = minute.toString().padStart(2, "0");
+          const time = `${formattedHour}:${formattedMinute}`;
+          const displayTime = `${hour}:${formattedMinute}`;
+          if (hour === endTime && minute === 30) {
+            break; // Skip the time "17:30"
         }
         options.push(
           <option key={time} value={time}>
@@ -211,6 +234,7 @@ function Appointment() {
           />
         </div>
         <div className="my-5">
+
           <p>Note</p>
           <textarea
             placeholder="Input Here"
@@ -219,6 +243,7 @@ function Appointment() {
             className="w-full h-20 p-2 border border-gray-300 rounded"
           />
         </div>
+
         <div className="flex-grow flex flex-col items-center justify-between">
           <div className="relative px-4 md:px-80 flex-col items-center justify-center md:mt-96">
             <Fragment>
@@ -238,16 +263,19 @@ function Appointment() {
               </Typography>
             )}
           </div>
+
           <div className="flex-col items-center px-4 md:px-80 mt-5">
             <Link
-              href={checkboxChecked ? "/successAppointment" : "#"}
               onClick={handleMakeAppointment}
+              href={checkboxChecked ? "/successAppointment" : "#"}
             >
               <Button onClick={() => {
-                // sendEmail();
-                updateMetadata()
-              }} variant="text" className="rounded-full px-10 py-4 mb-4 text-center text-[#4700C6] bg-[#FFE873] hover:bg-[#4700C6] hover:text-[#FFE873] hover:scale-105 transform transition duration-300 text-sm">
-                Make an Appointment
+                // call sendemail
+                sendEmail();
+                sendEmailTeacher();
+                updateMetadata();
+                }} variant="text" className="rounded-full px-10 py-4 mb-4 text-center text-[#4700C6] bg-[#FFE873] hover:bg-[#4700C6] hover:text-[#FFE873] hover:scale-105 transform transition duration-300 text-sm">
+                            Make an Appointment
             </Button>
             </Link>
           </div>

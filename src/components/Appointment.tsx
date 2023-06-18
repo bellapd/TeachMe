@@ -62,7 +62,15 @@ function Appointment() {
     email: user?.primaryEmailAddress?.emailAddress,
   };
 
-  const sendEmail = (e) => {
+  const teacherEmailParams = {
+    to_name:
+    from_name
+    time:
+    course:
+    message:
+    email: 
+  };
+  const sendEmailMentee = (e) => {
     e.preventDefault();
     // INI EDIT
     emailjs
@@ -83,7 +91,16 @@ function Appointment() {
         console.log(user?.firstName);
         console.log(user?.primaryEmailAddress?.emailAddress);
       });
-  };
+    };
+    const sendEmailTeacher = (e) => {
+        e.preventDefault();
+        emailjs.send(
+            "service_3m16hip", //Service ID
+            "template_0yqoorh", //Template ID
+            templateParams, 
+            "sMnDmOrgDr6X1RvYG" //User ID
+        )
+    }
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [showPrompt, setShowPrompt] = useState(false);
