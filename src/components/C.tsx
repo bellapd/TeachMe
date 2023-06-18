@@ -63,13 +63,13 @@ export default function Example() {
 
   return (
     <div className="">
-      <section className="bg-white py-12 h-1/3 md:h-1/2">
+      <section className="bg-white py-5 h-1/3 md:h-1/2">
         <div className="relative h-full">
           <div className="text-black py-12 px-10 md:px-64 flex items-center">
             <Image
               src="/images/c.svg"
               width={50}
-              height={50}
+              height={40}
               alt="c_logo"
               className="object-cover"
             />
@@ -127,19 +127,21 @@ export default function Example() {
             }}
           >
             {cards.map((card, index) => (
-              <div key={index} className="carousel-card flex-col items-center px-5 md:px-64 ">
+              <div
+                key={index}
+                className="carousel-card flex-col items-center px-5 md:px-64 "
+              >
                 <Card className="flex-col items-center bg-purple-200">
-                <div className="w-1/3 sm:w-auto ">
-                  <Image
-                    src={card.image}
-                    width={50}
-                    height={50}
-                    alt="image"
-                    className="mt-3 rounded-lg max-w-full h-auto align-middle border-none"
-                  />
-                </div>
+                  <div className="w-1/3 sm:w-auto ">
+                    <Image
+                      src={card.image}
+                      width={50}
+                      height={50}
+                      alt="image"
+                      className="mt-3 rounded-lg max-w-full h-auto align-middle border-none"
+                    />
+                  </div>
                   <CardBody className="flex">
-
                     <div>
                       <Typography
                         variant="h4"
@@ -157,20 +159,20 @@ export default function Example() {
                       </Typography>
                       <Typography
                         color="gray"
-                        className="font-normal px-5 md:px-32 mb-8"
+                        className="font-normal px-5 md:px-32 mb-2"
                       >
                         {card.description}
                       </Typography>
                     </div>
                   </CardBody>
-                  <div className="flex-col mb-3 items-center">
+                  <div className="flex-col items-center">
                     <Link
                       href={user && clerkUser ? card.link : "/signin"}
                       //className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873] hover:scale-105 transform transition duration-300 "
                     >
                       <Button
                         variant="text"
-                        className="rounded-full px-10 py-4 mb-4 text-center text-[#4700C6] bg-[#FFE873] hover:bg-[#4700C6] hover:text-[#FFE873] hover:scale-105 transform transition duration-300 text-sm"
+                        className="rounded-full px-5 py-4 mb-4 text-center text-[#4700C6] bg-[#FFE873] hover:bg-[#4700C6] hover:text-[#FFE873] hover:scale-105 transform transition duration-300 text-sm"
                       >
                         Make an Appointment
                       </Button>

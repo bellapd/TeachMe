@@ -12,7 +12,7 @@ function Profile() {
         >
           <Image
             className="rounded-full"
-            src="/images/dockerprofile.svg"
+            src="/images/docker2.svg"
             width={200}
             height={5}
             alt="profilepic"
@@ -23,7 +23,7 @@ function Profile() {
             id="ProfileName"
             className="font-serif font-bold text-3xl text-center capitalize text-purple-800"
           >
-            Croy Karz
+            Hendra
           </p>
           <br />
           <div className=" inline-block">
@@ -33,7 +33,7 @@ function Profile() {
               width={17}
               height={24}
             ></img>
-            <p className=" inline-block"> &nbsp; Sweden</p>
+            <p className=" inline-block"> &nbsp; Indonesia</p>
           </div>
           <div className=" inline-block">
             <br />
@@ -43,7 +43,7 @@ function Profile() {
               width={17}
               height={24}
             ></img>
-            <p className=" inline-block"> &nbsp; English, Swedish</p>
+            <p className=" inline-block"> &nbsp; English, Indonesia</p>
           </div>
           <div className=" inline-block">
             <img
@@ -52,7 +52,7 @@ function Profile() {
               width={17}
               height={24}
             ></img>
-            <p className=" inline-block"> &nbsp; UPenn</p>
+            <p className=" inline-block"> &nbsp; Univeristy of Indonesia</p>
           </div>
           <br />
           <br />

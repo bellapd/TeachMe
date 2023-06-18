@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Card,
   CardHeader,
@@ -10,15 +10,25 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carous
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 import { useUser, useClerk } from "@clerk/clerk-react";
+import Link from "next/link";
 
 export default function Example() {
   const { user } = useUser();
   const { user: clerkUser } = useClerk();
-  const handleSlideChange = () => {
-    setActiveCard;
-  };
   const [activeCard, setActiveCard] = useState(0);
-  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const cards = [
     {
       image:
@@ -50,25 +60,24 @@ export default function Example() {
     // Add more card objects as needed
   ];
 
-  
+
+  const handleSlideChange = (index) => {
+    setActiveCard(index);
+  };
 
   return (
     <div className="">
-      <section className="bg-white py-12 h-1/3 md:h-1/2">
+      <section className="bg-white py-5 h-1/3 md:h-1/2">
         <div className="relative h-full">
-          <div className="text-black py-12 px-64 flex items-center">
+          <div className="text-black py-12 px-10 md:px-64 flex items-center">
             <Image
-                src="/images/python.svg"
-                width={50}
-                height={50}
-                alt="python_logo"
-                className="object-cover"
-            /> 
-            <Typography
-              variant="h2"
-              color="blue-gray"
-              className="mb-2 px-2"
-            >
+              src="/images/python.svg"
+              width={50}
+              height={40}
+              alt="c_logo"
+              className="object-cover"
+            />
+            <Typography variant="h2" color="blue-gray" className="mb-2 px-2">
               Python
             </Typography>
           </div>
@@ -81,87 +90,104 @@ export default function Example() {
             infiniteLoop
             className="carousel-wrapper"
             renderArrowPrev={(clickHandler, hasPrev) => {
+              const arrowSize = isMobile ? 24 : 100;
+
               return (
                 <div
                   className={`${
-                    hasPrev ? 'absolute' : 'hidden'
-                  } top-0 bottom-0 left-0 flex justify-center items-center p-10 opacity-50 hover:opacity-100 cursor-pointer z-20`}
+                    hasPrev ? "absolute" : "hidden"
+                  } top-0 bottom-0 left-0 flex justify-center items-center p-2 opacity-50 hover:opacity-100 cursor-pointer z-20`}
                   onClick={clickHandler}
                 >
-                  <Image 
+                  <Image
                     src="/images/leftArrow.svg"
-                    width={100}
-                    height={100}
-                    alt = "leftArrow"
-                    className="w-20 h-20 text-white" />
+                    width={arrowSize}
+                    height={arrowSize}
+                    alt="leftArrow"
+                    className="w-8 h-8 text-white"
+                  />
                 </div>
               );
             }}
             renderArrowNext={(clickHandler, hasNext) => {
+              const arrowSize = isMobile ? 24 : 100;
+
               return (
                 <div
                   className={`${
-                    hasNext ? 'absolute' : 'hidden'
-                  } top-0 bottom-0 right-0 flex justify-center items-center p-10 opacity-50 hover:opacity-100 cursor-pointer z-20`}
+                    hasNext ? "absolute" : "hidden"
+                  } top-0 bottom-0 right-0 flex justify-center items-center p-2 opacity-50 hover:opacity-100 cursor-pointer z-20`}
                   onClick={clickHandler}
                 >
-                  <Image 
+                  <Image
                     src="/images/rightArrow.svg"
-                    width={100}
-                    height={100}
-                    alt = "rightArrow"
-                    className="w-20 h-20 text-white" />
+                    width={arrowSize}
+                    height={arrowSize}
+                    alt="rightArrow"
+                    className="w-8 h-8 text-white"
+                  />
                 </div>
               );
             }}
           >
             {cards.map((card, index) => (
-            <div key={index} className="carousel-card flex-col items-center px-64">
-              <Card className="bg-purple-200">
-                <CardBody className="flex">
-                  <div>
+              <div
+                key={index}
+                className="carousel-card flex-col items-center px-5 md:px-64 "
+              >
+                <Card className="flex-col items-center bg-purple-200">
+                  <div className="w-1/3 sm:w-auto ">
                     <Image
                       src={card.image}
                       width={50}
                       height={50}
                       alt="image"
-                      className="w-2/5  m-0 rounded-r-none object-cover"
+                      className="mt-3 rounded-lg max-w-full h-auto align-middle border-none"
                     />
                   </div>
-                  <div>
-                    <Typography
-                      variant="h6"
-                      color="blue"
-                      className="uppercase mb-4"
+                  <CardBody className="flex">
+                    <div>
+                      <Typography
+                        variant="h4"
+                        color="blue"
+                        className="uppercase mb-4"
+                      >
+                        {card.title}
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        color="blue-gray"
+                        className="mb-2"
+                      >
+                        {card.subtitle}
+                      </Typography>
+                      <Typography
+                        color="gray"
+                        className="font-normal px-5 md:px-32 mb-2"
+                      >
+                        {card.description}
+                      </Typography>
+                    </div>
+                  </CardBody>
+                  <div className="flex-col items-center">
+                    <Link
+                      href={user && clerkUser ? card.link : "/signin"}
+                      //className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873] hover:scale-105 transform transition duration-300 "
                     >
-                      {card.title}
-                    </Typography>
-                    <Typography
-                      variant="h4"
-                      color="blue-gray"
-                      className="mb-2"
-                    >
-                      {card.subtitle}
-                    </Typography>
-                    <Typography color="gray" className="font-normal mb-8">
-                      {card.description}
-                    </Typography>
+                      <Button
+                        variant="text"
+                        className="rounded-full px-5 py-4 mb-4 text-center text-[#4700C6] bg-[#FFE873] hover:bg-[#4700C6] hover:text-[#FFE873] hover:scale-105 transform transition duration-300 text-sm"
+                      >
+                        Make an Appointment
+                      </Button>
+                    </Link>
                   </div>
-                </CardBody>
-                <div className="flex-col items-center">
-                  <a href={ user&&clerkUser ? card.link : "/signin"} className="inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center text-[#4700C6] rounded-xl bg-[#FFE873]">
-                    <Button variant="text" className="flex items-center gap-2 text-center">
-                      Make an Appointment
-                    </Button>
-                  </a></div>
-                
-              </Card>
-            </div>
+                </Card>
+              </div>
             ))}
           </Carousel>
         </div>
       </section>
-      
     </div>
   );
 }
