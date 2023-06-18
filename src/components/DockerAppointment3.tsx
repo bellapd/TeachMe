@@ -9,6 +9,11 @@ import {useUser } from '@clerk/nextjs';
 // PUBLIC KEY
 emailjs.init('sMnDmOrgDr6X1RvYG')
 
+
+var coursename = "Docker";
+var MentorName ="Bang Agus"
+var targetEmail ="fernando.mikael.stww@gmail.com"
+
 function Appointment() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState("9:00");
@@ -79,15 +84,20 @@ function Appointment() {
       }
     }
   };
+  const [text,setText] = useState("");
 
+  const handleChangeText = (event) =>{
+    const text = setText(event.target.value);
+  
+  };
+  
   const templateParams = {
     to_name: user?.firstName,
     from_name: "TeachMe",
     email: user?.primaryEmailAddress?.emailAddress
   };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
+  
+  const sendEmail = () => {
     // INI EDIT
     emailjs.send("service_3m16hip", "template_73tx6bx", templateParams, "sMnDmOrgDr6X1RvYG")
         //INI EDIT  
@@ -102,6 +112,28 @@ function Appointment() {
         console.log(user?.primaryEmailAddress?.emailAddress)
         });
   };  
+  
+  const teacherEmailParams = {
+    to_name: MentorName,
+    from_name: user?.firstName,
+    email: targetEmail,
+    date: getFormattedDate(),
+    time: selectedTime,
+    course: coursename,
+    note : text,
+  };
+  
+  const sendEmailTeacher = () => {
+    emailjs.send(
+        "service_3m16hip", //Service ID
+        "template_0yqoorh", //Template ID
+        teacherEmailParams, 
+        "sMnDmOrgDr6X1RvYG" //User ID
+    )
+  };
+  
+  
+  
 
   const handleCheckboxChange = () => {
     setCheckboxChecked(!checkboxChecked);
@@ -117,11 +149,6 @@ function Appointment() {
     }
   };
 
-  const [text,setText] = useState("");
-
-    const handleChangeText = (event) =>{
-            setText(event.target.value);
-    };
     const generateTimeOptions = () => {
       const options = [];
       const startTime = 9; // 9:00 AM

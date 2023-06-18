@@ -9,6 +9,10 @@ import {useUser } from '@clerk/nextjs';
 // PUBLIC KEY
 emailjs.init('sMnDmOrgDr6X1RvYG')
 
+var coursename = "C";
+var MentorName ="Ya Boi Frans"
+var targetEmail ="fernando.mikael.stww@gmail.com"
+
 function Appointment() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState("9:00");
@@ -79,15 +83,20 @@ function Appointment() {
       }
     }
   };
+  const [text,setText] = useState("");
 
+  const handleChangeText = (event) =>{
+    const text = setText(event.target.value);
+  
+  };
+  
   const templateParams = {
     to_name: user?.firstName,
     from_name: "TeachMe",
     email: user?.primaryEmailAddress?.emailAddress
   };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
+  
+  const sendEmail = () => {
     // INI EDIT
     emailjs.send("service_3m16hip", "template_73tx6bx", templateParams, "sMnDmOrgDr6X1RvYG")
         //INI EDIT  
@@ -102,6 +111,26 @@ function Appointment() {
         console.log(user?.primaryEmailAddress?.emailAddress)
         });
   };  
+  
+  const teacherEmailParams = {
+    to_name: MentorName,
+    from_name: user?.firstName,
+    email: targetEmail,
+    date: getFormattedDate(),
+    time: selectedTime,
+    course: coursename,
+    note : text,
+  };
+  
+  const sendEmailTeacher = () => {
+    emailjs.send(
+        "service_3m16hip", //Service ID
+        "template_0yqoorh", //Template ID
+        teacherEmailParams, 
+        "sMnDmOrgDr6X1RvYG" //User ID
+    )
+  };
+  
 
   const handleCheckboxChange = () => {
     setCheckboxChecked(!checkboxChecked);
@@ -116,12 +145,6 @@ function Appointment() {
       setShowPrompt(true);
     }
   };
-
-  const [text,setText] = useState("");
-
-    const handleChangeText = (event) =>{
-        setText(event.target.value);
-    };
   
   const generateTimeOptions = () => {
     const options = [];
@@ -252,16 +275,19 @@ function Appointment() {
             )}
           </div>
           <div className="flex-col items-center px-80">
-            <a
-              href={checkboxChecked ? "/successAppointment" : "#"}
-              className={`inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center bg-[#FFE873] text-[#4700C6] rounded-xl`}
-              onClick={handleMakeAppointment}
+          <a
+            // href={checkboxChecked ? "/successAppointment" : "#"}
+            className={`inline-flex justify-center items-center mt-4 py-3 px-5 text-base font-large text-center bg-[#FFE873] text-[#4700C6] rounded-xl`}
+            onClick={handleMakeAppointment}
+            href={checkboxChecked ? "/successAppointment" : "#"}
             >
-              <Button onClick={() => {
-                // sendEmail();
-                updateMetadata()
-                }} variant="text" className="flex items-center gap-2 text-center">
-                            Make an Appointment
+            <Button onClick={() => {
+              // call sendemail
+              sendEmail();
+              sendEmailTeacher();
+              updateMetadata();
+              }} variant="text" className="flex items-center gap-2 text-center">
+                          Make an Appointment
             </Button>
             </a>
           </div>
