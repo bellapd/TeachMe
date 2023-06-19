@@ -12,11 +12,15 @@ import {
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   return (
     <nav className="bg-[#4700C6] sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,36 +31,36 @@ const Navbar = () => {
                 <Image
                   src="/images/logonav.svg"
                   alt="logo"
-                  width={100}
-                  height={100}>
+                  width={150}
+                  height={150}>
                   
                 </Image>
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link href="#JumpAbout" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/#JumpAbout" className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
                   About
                 </Link>
-                <Link href="/communities" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/communities" className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
                   Community
                 </Link>
                 <div className="relative">
                   <button
-                    className="text-gray-300 hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
                     onClick={toggleMobileMenu}
                   >
                     Courses
                   </button>
                   {isMobileMenuOpen && (
                     <div className="absolute z-10 left-0 mt-2 w-40 bg-white divide-y divide-gray-200 rounded-md shadow-lg">
-                      <Link href="/courses/c" passHref>
-                        <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">C</div>
+                      <Link href="/c" passHref>
+                        <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#c29ef5]-100 cursor-pointer">C</div>
                       </Link>
-                      <Link href="/courses/python" passHref>
+                      <Link href="/python" passHref>
                         <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Python</div>
                       </Link>
-                      <Link href="/courses/docker" passHref>
+                      <Link href="/docker" passHref>
                         <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Docker</div>
                       </Link>
                     </div>
@@ -66,10 +70,10 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Link href="/userDashboard" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            <Link href="/userDashboard" className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
               Dashboard
             </Link>
-            <div className="text-gray-300 hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            <div className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium">
               <SignedIn>
                     {/* Mount the UserButton component */}
                     <UserButton />
@@ -83,7 +87,7 @@ const Navbar = () => {
           <div className="-mr-2 flex sm:hidden">
             <button
               type="button"
-              className="text-gray-300 hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              className="px-3 py-2 rounded-md text-xl font-bold"
               onClick={toggleMobileMenu}
             >
               <AiOutlineMenu/>
@@ -93,7 +97,7 @@ const Navbar = () => {
 
         {isMobileMenuOpen && (
           <div className="sm:hidden">
-            <div className="text-gray-300 hover:bg-[#c29ef5] hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <div className=" block px-4 py-2 rounded-md text-base font-medium">
                 <SignedIn>
                   {/* Mount the UserButton component */}
                   <UserButton />
@@ -104,32 +108,48 @@ const Navbar = () => {
                 </SignedOut>
             </div>
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link href="/userDashboard" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+              <Link href="/userDashboard" className="  block px-3 py-2 rounded-md text-base font-medium">
                   Dashboard
                 </Link>
-              <Link href="#JumpAbout" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                <Link
+                href="/#JumpAbout"
+                className="block px-3 py-2 rounded-md text-base font-medium"
+              >
                 About
               </Link>
-              <Link href="/communities" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+              <Link
+                href="/communities"
+                className="block px-3 py-2 rounded-md text-base font-medium"
+              >
                 Community
               </Link>
-              <Link href="/" className="disabled text-gray-300 hover:bg-[#c29ef5] hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Courses
-              <div>
-              <ul>
-                <Link href="/c" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  C
-                </Link>
-                <Link href="/python" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Python
-                </Link>
-                <Link href="/docker" className="text-gray-300 hover:bg-[#c29ef5] hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Docker
-                </Link>
-              </ul>
+              <div className="relative">
+                <button
+                  className="block px-3 py-2 rounded-md text-base font-medium"
+                  onClick={toggleDropdown}
+                >
+                  Courses
+                </button>
+                {isDropdownOpen && (
+                  <div className="absolute z-10 left-0 mt-2 w-40 bg-white divide-y divide-gray-200 rounded-md shadow-lg">
+                    <Link href="/c" passHref>
+                      <div className="block px-4 py-2 text-sm text-black hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
+                        C
+                      </div>
+                    </Link>
+                    <Link href="/python" passHref>
+                      <div className="block px-4 py-2 text-sm text-black hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
+                        Python
+                      </div>
+                    </Link>
+                    <Link href="/docker" passHref>
+                      <div className="block px-4 py-2 text-sm text-black hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
+                        Docker
+                      </div>
+                    </Link>
+                  </div>
+                )}
               </div>
-              </Link>
-
             </div>
           </div>
         )}

@@ -11,7 +11,7 @@ function Docker() {
   if (user && clerkUser) {
     return (
       <>
-      <Navbar />
+      <RegisterNavbar />
       <App />
     </>
     );
