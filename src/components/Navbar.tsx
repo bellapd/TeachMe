@@ -120,19 +120,19 @@ const Navbar = () => {
               </Link>
               <Link
                 href="/#JumpAbout"
-                className="block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 About
               </Link>
               <Link
                 href="/communities"
-                className="block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Community
               </Link>
               <div className="relative">
                 <button
-                  className="block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium"
                   onClick={toggleDropdown}
                 >
                   Courses

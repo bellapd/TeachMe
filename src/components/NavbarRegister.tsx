@@ -73,7 +73,7 @@ const Navbar = () => {
             <Link href="/userDashboard" className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
               Dashboard
             </Link>
-            <div className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            <div className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium">
               <SignedIn>
                     {/* Mount the UserButton component */}
                     <UserButton />
@@ -87,7 +87,7 @@ const Navbar = () => {
           <div className="-mr-2 flex sm:hidden">
             <button
               type="button"
-              className="px-3 py-2 rounded-md text-xl font-bold"
+              className="text-white px-3 py-2 rounded-md text-xl font-bold"
               onClick={toggleMobileMenu}
             >
               <AiOutlineMenu/>
@@ -108,24 +108,24 @@ const Navbar = () => {
                 </SignedOut>
             </div>
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link href="/userDashboard" className="  block px-3 py-2 rounded-md text-base font-medium">
+              <Link href="/userDashboard" className="text-white block px-3 py-2 rounded-md text-base font-medium">
                   Dashboard
                 </Link>
                 <Link
                 href="/#JumpAbout"
-                className="block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 About
               </Link>
               <Link
                 href="/communities"
-                className="block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Community
               </Link>
               <div className="relative">
                 <button
-                  className="block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-white block px-3 py-2 rounded-md text-base font-medium"
                   onClick={toggleDropdown}
                 >
                   Courses
