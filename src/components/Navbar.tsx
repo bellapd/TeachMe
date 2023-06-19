@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import {
   Navbar,
@@ -13,43 +13,58 @@ import Image from "next/image";
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
   const router = useRouter();
 
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown);
   };
 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false)
-    );
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
+  const isMobile = windowWidth < 960;
+
+  const toggleNav = () => {
+    setOpenNav(!openNav);
+  };
+
   const navList = (
-    <div className="flex items-center gap-6">
+    <div className={`flex items-center gap-6 ${isMobile ? "flex-col" : ""}`}>
       <Typography variant="small" color="blue-gray" className="font-normal">
         {router.pathname === "/" ? (
           <Link
             href="#JumpAbout"
-            className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+            className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+            onClick={toggleNav}
           >
             About
           </Link>
         ) : (
           <Link
             href="/#JumpAbout"
-            className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+            className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+            onClick={toggleNav}
           >
             About
           </Link>
         )}
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
-        {/* <a href="/profiledetails" className="flex items-center focus:outline-none"></a> */}
         <a
           href="communities"
           className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+          onClick={toggleNav}
         >
           Community
         </a>
@@ -76,6 +91,7 @@ export default function Example() {
                 href="/python"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
+                onClick={toggleNav}
               >
                 Python
               </Link>
@@ -83,6 +99,7 @@ export default function Example() {
                 href="/c"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
+                onClick={toggleNav}
               >
                 C
               </Link>
@@ -90,6 +107,7 @@ export default function Example() {
                 href="/docker"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
+                onClick={toggleNav}
               >
                 Docker
               </Link>
@@ -116,7 +134,7 @@ export default function Example() {
                 height={100}
               />
             </Link>
-            <div className="hidden lg:block">{navList}</div>
+            {!isMobile && <div>{navList}</div>}
           </div>
           <div className="flex items-center gap-4">
             <Link
@@ -135,7 +153,7 @@ export default function Example() {
               variant="text"
               className="h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
               ripple={false}
-              onClick={() => setOpenNav(!openNav)}
+              onClick={toggleNav}
             >
               {openNav ? (
                 <svg
@@ -170,14 +188,35 @@ export default function Example() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
-          {navList}
-          <Link href="/signin">
-            <Button size="sm" fullWidth className="mb-2" color="purple">
-              Sign In
-            </Button>
-          </Link>
-        </MobileNav>
+        {isMobile && (
+          <MobileNav className="mb-1" open={openNav}>
+            {navList}
+            <div className="flex flex-col my-5 gap-4">
+              <Link href="/signin">
+                <Button
+                  size="sm"
+                  fullWidth
+                  className="mb-2"
+                  color="purple"
+                  onClick={toggleNav}
+                >
+                  Sign In
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button
+                  size="sm"
+                  fullWidth
+                  className="mb-2"
+                  color="purple"
+                  onClick={toggleNav}
+                >
+                  Sign Up
+                </Button>
+              </Link>
+            </div>
+          </MobileNav>
+        )}
       </Navbar>
     </>
   );
