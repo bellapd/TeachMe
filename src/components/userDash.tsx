@@ -24,7 +24,7 @@ export default function UserDashboardSHEEESH() {
         </div>
         <p className="text-2xl text-black font-bold">
           {user?.firstName}{" "}
-          <a href="https://facebook.com">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fteachme-ss.vercel.app%2F&amp;src=sdkpreparse">
             <i className="fa fa-share"></i>
           </a>
         </p>
