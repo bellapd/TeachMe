@@ -55,7 +55,7 @@ function Appointment() {
       } catch (err) {
         console.error("error", err);
       }
-    } else if (cour !== undefined && cour?.docker === undefined) {
+    } else if (cour && !cour.hasOwnProperty("docker")) {
       const course = {
         docker: [[getFormattedDate(), selectedTime, "Agus", "docker"]],
       };
@@ -74,7 +74,9 @@ function Appointment() {
       }
     } else {
       const course = [[getFormattedDate(), selectedTime, "Agus", "docker"]];
-      const cour2 = user?.unsafeMetadata?.courses?.docker?.concat(course);
+      const cour2 = (
+        (user?.unsafeMetadata?.courses as Record<string, unknown>)?.docker as any[]
+      )?.concat(course) || [];
       const newData = {
         ...(user?.unsafeMetadata?.courses || {}),
         ...{ docker: cour2 },

@@ -27,6 +27,8 @@ const RatingPopup = () => {
                   {" "}
                   Do you like our service?
                 </p>
+                <p>⭐️⭐️⭐️⭐️⭐️</p>
+                <br/>
                 <div className="flex justify-center">
                   <a onClick={handleClose}>
                     <Button className="text-white shadow-xl bg-green-700 mx-5 scale-100 hover:scale-125 ease-in duration-50">

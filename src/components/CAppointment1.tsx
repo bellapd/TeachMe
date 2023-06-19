@@ -68,12 +68,16 @@ function Appointment() {
       }
     } else {
       const course = [[getFormattedDate(), selectedTime, "Frans", "c"]];
-      const cour2 = user?.unsafeMetadata?.courses?.c?.concat(course) || [];
-       const newData = {
+      const cour2 =
+        (
+          (user?.unsafeMetadata?.courses as Record<string, unknown>)?.c as any[]
+        )?.concat(course) || [];
+
+      const newData = {
         ...(user?.unsafeMetadata?.courses || {}),
         ...{ c: cour2 },
       };
-  
+
       try {
         const response = await user?.update({
           unsafeMetadata: newData,
@@ -86,10 +90,10 @@ function Appointment() {
       }
     }
   };
-  
+
   const [text, setText] = useState("");
 
-  const handleChangeText = (event:any) => {
+  const handleChangeText = (event: any) => {
     const text = setText(event.target.value);
   };
 

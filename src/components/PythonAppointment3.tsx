@@ -54,7 +54,7 @@ function Appointment() {
       } catch (err) {
         console.error("error", err);
       }
-    } else if (cour !== undefined && cour?.python === undefined) {
+    } else if (cour && !cour.hasOwnProperty("python")) {
       const course = {
         python: [[getFormattedDate(), selectedTime, "Lord Bawi", "python"]],
       };
@@ -75,7 +75,9 @@ function Appointment() {
       const course = [
         [getFormattedDate(), selectedTime, "Lord Bawi", "python"],
       ];
-      const cour2 = user?.unsafeMetadata?.courses?.python?.concat(course);
+      const cour2 = (
+        (user?.unsafeMetadata?.courses as Record<string, unknown>)?.python as any[]
+      )?.concat(course) || [];
       const newData = {
         ...(user?.unsafeMetadata?.courses || {}),
         ...{ python: cour2 },
