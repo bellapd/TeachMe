@@ -37,6 +37,8 @@
     "react-ios-time-picker": "^0.2.2",
     "react-jss": "^10.10.0",
     "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.13.0",
+    "react-scroll": "^1.8.9",
     "react-tailwindcss-datepicker": "^1.6.3",
     "react-time-picker": "^6.2.0",
     "react-timeit": "^1.2.12",

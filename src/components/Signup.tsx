@@ -4,9 +4,9 @@ import { SignedOut } from "@clerk/clerk-react";
 
 const Signup = () => {
   return (
-    <div className="flex flex-col md:flex-row bg-[#4700C6]">
+    <div className="flex flex-col sm:flex-row bg-[#4700C6]">
       {/* Image component */}
-      <div className="w-full md:w-1/2 flex justify-center items-center p-7">
+      <div className="sm:w-1/2 flex justify-center items-center p-7">
         <Image
           src="/images/signup.svg"
           width={500}
@@ -17,13 +17,11 @@ const Signup = () => {
       </div>
 
       {/* Sign-up form */}
-      <div className="w-full md:w-1/2 flex justify-center items-center p-5">
-        <div className="w-full max-w-md">
-          <SignedOut>
-            <SignUp />
-            <RedirectToSignUp />
-          </SignedOut>
-        </div>
+      <div className="sm:w-1/2 flex justify-center items-center p-7">
+        <SignedOut>
+          <SignUp/>
+          <RedirectToSignUp />
+        </SignedOut>
       </div>
     </div>
   );
