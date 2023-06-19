@@ -34,7 +34,7 @@ function Profile() {
               height={24}
               alt="location"
             />
-            <p className="inline-block">&nbsp; Sctoland</p>
+            <p className="inline-block">&nbsp; Scotland</p>
           </div>
           <br />
           <div className="inline-block">
