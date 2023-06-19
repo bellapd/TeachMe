@@ -34,19 +34,19 @@ const Navbar = () => {
               <div className="flex space-x-4">
                 <Link
                   href="/#JumpAbout"
-                  className="hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                  className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
                 >
                   About
                 </Link>
                 <Link
                   href="/communities"
-                  className="hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                  className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
                 >
                   Community
                 </Link>
                 <div className="relative">
                   <button
-                    className="hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                    className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
                     onClick={toggleMobileMenu}
                   >
                     Courses
@@ -54,17 +54,17 @@ const Navbar = () => {
                   {isMobileMenuOpen && (
                     <div className="absolute z-10 left-0 mt-2 w-40 bg-white divide-y divide-gray-200 rounded-md shadow-lg">
                       <Link href="/c" passHref>
-                        <div className="block px-4 py-2 text-sm text-black hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
+                        <div className="block px-4 py-2 text-sm hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
                           C
                         </div>
                       </Link>
                       <Link href="/python" passHref>
-                        <div className="block px-4 py-2 text-sm text-black hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
+                        <div className="block px-4 py-2 text-sm hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
                           Python
                         </div>
                       </Link>
                       <Link href="/docker" passHref>
-                        <div className="block px-4 py-2 text-sm text-black hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
+                        <div className="block px-4 py-2 text-sm hover:bg-[#c29ef5] hover:text-white  cursor-pointer">
                           Docker
                         </div>
                       </Link>
@@ -77,13 +77,13 @@ const Navbar = () => {
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
             <Link
               href="/signup"
-              className="hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
             >
               Sign Up
             </Link>
             <Link
               href="/signin"
-              className="hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
+              className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
             >
               Sign In
             </Link>

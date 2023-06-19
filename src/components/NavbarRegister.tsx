@@ -39,15 +39,15 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link href="/#JumpAbout" className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
+                <Link href="/#JumpAbout" className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
                   About
                 </Link>
-                <Link href="/communities" className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
+                <Link href="/communities" className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
                   Community
                 </Link>
                 <div className="relative">
                   <button
-                    className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                    className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium"
                     onClick={toggleMobileMenu}
                   >
                     Courses
@@ -70,7 +70,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Link href="/userDashboard" className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
+            <Link href="/userDashboard" className="text-white hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-md font-medium">
               Dashboard
             </Link>
             <div className=" hover:bg-[#c29ef5] hover:text-white px-3 py-2 rounded-md text-sm font-medium">
