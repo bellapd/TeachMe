@@ -189,7 +189,7 @@ export default function Example() {
                 )}
               </IconButton>
             </div>
-            <div className=" inline-flex items-center gap-3 lg:block">
+            <div className="  inline-flex items-center gap-3 ">
               <Dashboard />
             </div>
           </div>
