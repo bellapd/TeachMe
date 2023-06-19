@@ -69,7 +69,7 @@ export default function Example() {
           </a>
         ) : (
           <Link
-            href="/about"
+            href="/#JumpAbout"
             className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
           >
             About
@@ -78,7 +78,7 @@ export default function Example() {
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
         <Link
-          href="/communities"
+          href="communities"
           className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
         >
           Community
