@@ -112,9 +112,13 @@ function Appointment() {
   };
   
   const templateParams = {
-    to_name: user?.firstName,
-    from_name: "TeachMe",
-    email: user?.primaryEmailAddress?.emailAddress
+    from_name: user?.firstName,
+    to_name: MentorName,
+    date: getFormattedDate(),
+    time: selectedTime,
+    course: coursename,
+    note: text,
+    email: user?.primaryEmailAddress?.emailAddress,
   };
   
   const sendEmail = () => {

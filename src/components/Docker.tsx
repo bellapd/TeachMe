@@ -57,7 +57,7 @@ export default function Example() {
     // Add more card objects as needed
   ];
 
-  const handleSlideChange = (index:any) => {
+  const handleSlideChange = (index: any) => {
     setActiveCard(index);
   };
 
@@ -132,15 +132,21 @@ export default function Example() {
                 className="carousel-card flex-col items-center px-5 md:px-64 "
               >
                 <Card className="flex-col items-center bg-purple-200">
-                  <div className="w-1/5 sm:w-auto ">
-                    <Image
-                      src={card.image}
-                      width={30}
-                      height={30}
-                      alt="image"
-                      className="mt-3 rounded-lg max-w-full h-auto align-middle border-none"
-                    />
-                  </div>
+                  <Link
+                    href={`/teacher-profile/${card.title.replace(/\s+/g, "")}`}
+                  >
+                    <div className="w-1/5 sm:w-auto mx-auto">
+                      <div className="hover:scale-110 transition-transform duration-200">
+                        <Image
+                          src={card.image}
+                          width={30}
+                          height={30}
+                          alt="image"
+                          className="mt-3 rounded-lg max-w-full h-auto align-middle border-none"
+                        />
+                      </div>
+                    </div>
+                  </Link>
                   <CardBody className="flex">
                     <div className="ml-4">
                       <Typography

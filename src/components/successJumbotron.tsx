@@ -48,7 +48,7 @@ export default function successJumbo() {
                 </Button>
               </Link>
               <div className="my-2 -mx-5">
-                <Link href="#" className="text-2xl hover:underline ">
+                <Link href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fteachme-ss.vercel.app%2F&amp;src=sdkpreparse" className="text-2xl hover:underline ">
                   <i className=" text-2xl fa fa-facebook text-blue-600 font-bold hover:underline">
                     {" "}
                     Share on Facebook
@@ -56,7 +56,7 @@ export default function successJumbo() {
                 </Link>
               </div>
               <div className="my-2 -mx-6">
-                <Link href="#" className="text-2xl font-bold hover:underline">
+                <Link href="https://twitter.com/intent/tweet?text=I%20just%20found%20out%20this%20web%20called%20TeachMe!!%20It%20is%20very%20helpful!!%20OMGGG%20This%20is%20the%20link%20just%20check%20it%20out%0Ahttps%3A%2F%2Fwww.teachme.com%2F" className="text-2xl font-bold hover:underline">
                   <i
                     className="fa fa-twitter text-blue-400 font-bold hover:underline "
                     aria-hidden="true"

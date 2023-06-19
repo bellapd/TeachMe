@@ -31,8 +31,7 @@ export default function Example() {
 
   const cards = [
     {
-      image:
-        "/images/python1.svg",
+      image: "/images/python1.svg",
       title: "Buudi Sumaker",
       subtitle: "Python programmer with 99 years of experience",
       description:
@@ -40,28 +39,25 @@ export default function Example() {
       link: "/appointment/buudisumaker",
     },
     {
-        image:
-          "/images/python2.svg",
-        title: "Queenie",
-        subtitle: "Python programmer with 99 years of experience",
-        description:
-          "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
-        link: "/appointment/queenie",
-      },
-      {
-        image:
-          "/images/python3.svg",
-        title: "Lord Bawi",
-        subtitle: "Python programmer with 99 years of experience",
-        description:
-          "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
-        link: "/appointment/lordbawi",
-      },
+      image: "/images/python2.svg",
+      title: "Queenie",
+      subtitle: "Python programmer with 99 years of experience",
+      description:
+        "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
+      link: "/appointment/queenie",
+    },
+    {
+      image: "/images/python3.svg",
+      title: "Lord Bawi",
+      subtitle: "Python programmer with 99 years of experience",
+      description:
+        "I have studied Python for the longest time. I have also used it in almost of my project, be it a huge collaborative project with big company, or personal side hustle. This mean I have a wide understanding of how to use Python to its fullest.",
+      link: "/appointment/lordbawi",
+    },
     // Add more card objects as needed
   ];
 
-
-  const handleSlideChange = (index:any) => {
+  const handleSlideChange = (index: any) => {
     setActiveCard(index);
   };
 
@@ -74,7 +70,7 @@ export default function Example() {
               src="/images/python.svg"
               width={50}
               height={40}
-              alt="c_logo"
+              alt="python_logo"
               className="object-cover"
             />
             <Typography variant="h2" color="blue-gray" className="mb-2 px-2">
@@ -136,15 +132,21 @@ export default function Example() {
                 className="carousel-card flex-col items-center px-5 md:px-64 "
               >
                 <Card className="flex-col items-center bg-purple-200">
-                  <div className="w-1/3 sm:w-auto ">
-                    <Image
-                      src={card.image}
-                      width={50}
-                      height={50}
-                      alt="image"
-                      className="mt-3 rounded-lg max-w-full h-auto align-middle border-none"
-                    />
-                  </div>
+                  <Link
+                    href={`/teacher-profile/${card.title.replace(/\s+/g, "")}`}
+                  >
+                    <div className="w-1/3 sm:w-auto mx-auto">
+                      <div className="hover:scale-110 transition-transform duration-200">
+                        <Image
+                          src={card.image}
+                          width={20}
+                          height={20}
+                          alt="image"
+                          className="mt-3 rounded-lg max-w-full h-auto align-middle border-none"
+                        />
+                      </div>
+                    </div>
+                  </Link>
                   <CardBody className="flex">
                     <div>
                       <Typography

@@ -11,7 +11,7 @@ import Link from "next/link";
 emailjs.init("sMnDmOrgDr6X1RvYG");
 
 var coursename = "C";
-var MentorName = "Ya Boi Frans";
+var MentorName = "Frans";
 var targetEmail = "fernando.mikael.stww@gmail.com";
 
 function Appointment() {
@@ -98,8 +98,12 @@ function Appointment() {
   };
 
   const templateParams = {
-    to_name: user?.firstName,
-    from_name: "TeachMe",
+    from_name: user?.firstName,
+    to_name: MentorName,
+    date: getFormattedDate(),
+    time: selectedTime,
+    course: coursename,
+    note: text,
     email: user?.primaryEmailAddress?.emailAddress,
   };
 

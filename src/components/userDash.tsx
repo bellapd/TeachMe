@@ -24,7 +24,7 @@ export default function UserDashboardSHEEESH() {
         </div>
         <p className="text-2xl text-black font-bold">
           {user?.firstName}{" "}
-          <a href="https://facebook.com">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fteachme-ss.vercel.app%2F&amp;src=sdkpreparse">
             <i className="fa fa-share"></i>
           </a>
         </p>
@@ -65,18 +65,16 @@ export default function UserDashboardSHEEESH() {
                           <p className="text-sm">{courseInstance[0]}</p>
                           <p className="text-sm">{courseInstance[1]}</p>
                           <p className="text-sm mb-3">{courseInstance[2]}</p>
-                          <a href="/profiledetails">
-                            <Button className="rounded-full bg-sky-500 hover:bg-sky-700">
-                              <Link
-                                href={`/teacher-profile/${courseInstance[2].replace(
-                                  /\s+/g,
-                                  ""
-                                )}`}
-                              >
-                                <p>View Course</p>
-                              </Link>
-                            </Button>
-                          </a>
+                          <Button className="rounded-full bg-sky-500 hover:bg-sky-700">
+                            <Link
+                              href={`/teacher-profile/${courseInstance[2].replace(
+                                /\s+/g,
+                                ""
+                              )}`}
+                            >
+                              <p>View Course</p>
+                            </Link>
+                          </Button>
                         </div>
                       </div>
                     ))
