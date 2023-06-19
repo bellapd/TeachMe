@@ -135,7 +135,7 @@ export default function Example() {
                   <Link
                     href={`/teacher-profile/${card.title.replace(/\s+/g, "")}`}
                   >
-                    <div className="w-1/3 sm:w-auto relative">
+                    <div className="w-1/3 sm:w-auto mx-auto">
                       <div className="hover:scale-110 transition-transform duration-200">
                         <Image
                           src={card.image}
