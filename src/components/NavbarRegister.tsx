@@ -37,21 +37,23 @@ export default function Example() {
     return (
       <>
         <Typography>
-        <Link href="/userDashboard" className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
-          Dashboard
-        </Link>
+          <Link
+            href="/userDashboard"
+            className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+          >
+            Dashboard
+          </Link>
         </Typography>
         <div className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
-        <SignedIn>
-          {/* Mount the UserButton component */}
-          <UserButton />
-        </SignedIn>
-        <SignedOut>
-          {/* Signed out users get sign in button */}
-          <SignInButton />
-        </SignedOut>
+          <SignedIn>
+            {/* Mount the UserButton component */}
+            <UserButton />
+          </SignedIn>
+          <SignedOut>
+            {/* Signed out users get sign in button */}
+            <SignInButton />
+          </SignedOut>
         </div>
-        
       </>
     );
   }
@@ -66,13 +68,19 @@ export default function Example() {
             About
           </a>
         ) : (
-          <Link href="/#JumpAbout" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
-              About
+          <Link
+            href="/about"
+            className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+          >
+            About
           </Link>
         )}
       </Typography>
       <Typography variant="small" color="blue-gray" className="font-normal">
-        <Link href="/communities" className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
+        <Link
+          href="/communities"
+          className=" flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+        >
           Community
         </Link>
       </Typography>
@@ -127,7 +135,10 @@ export default function Example() {
       <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-[#4700C6]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/dashboard" className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200">
+            <Link
+              href="/dashboard"
+              className="flex items-center focus:outline-none scale-100 hover:scale-150 ease-in duration-200"
+            >
               <Image
                 src="/images/logonav.svg"
                 alt="logo"
@@ -137,10 +148,53 @@ export default function Example() {
             </Link>
             <div className="hidden lg:block">{navList}</div>
           </div>
-          <div className="flex items-center gap-4 ">
-            <Dashboard />
+          <div>
+            {/*  */}
+            <div className="items-center gap-4 inline-block lg:hidden">
+              <IconButton
+                variant="text"
+                className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent items-center lg:hidden"
+                ripple={false}
+                onClick={() => setOpenNav(!openNav)}
+              >
+                {openNav ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    className="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
+              </IconButton>
+            </div>
+            <div className=" inline-flex items-center gap-3 lg:block">
+              <Dashboard />
+            </div>
           </div>
         </div>
+        <MobileNav open={openNav}>{navList}</MobileNav>
       </Navbar>
     </>
   );
